@@ -1,8 +1,11 @@
+using Ui;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Module : MonoBehaviour
 {
     private bool onGround = false;
+    [SerializeField] private UiTrackObject clickRegistrarPrefab;
     [SerializeField] private Sprite spriteWhenOnGround;
     [SerializeField] private Sprite spriteWhenAttached;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -23,6 +26,7 @@ public class Module : MonoBehaviour
 
     void OnClicked()
     {
+        Debug.Log(gameObject.name + " clicked");
         if(onGround)
         {
             ModuleHolder moduleHolder = GameObject.FindWithTag("GameManager").GetComponent<ModuleHolder>();
@@ -44,6 +48,8 @@ public class Module : MonoBehaviour
     void Start()
     {
         UpdateSprite();
+        GameObject clickRegistrar = UiManager.GetInstance().AddTracking(clickRegistrarPrefab, gameObject);
+        clickRegistrar.GetComponent<Button>().onClick.AddListener(OnClicked);
     }
 
     // Update is called once per frame

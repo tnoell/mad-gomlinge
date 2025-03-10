@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6aa033bd952a44b989eed1bffce322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickRegistrarPrefab: {fileID: 342284682201591493, guid: bc1063b0177db5140825e83a680bd6a9, type: 3}
   spriteWhenOnGround: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   spriteWhenAttached: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   spriteRenderer: {fileID: 7592464295603438583}

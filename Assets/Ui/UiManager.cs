@@ -59,6 +59,18 @@ namespace Ui
             ap.GetComponent<UiTrackObject>().Track(trackedObj, offset);
             return ap;
         }
+
+        public GameObject AddTracking(UiTrackObject trackingPrefab, GameObject trackedObj, Vector3 offset)
+        {
+            UiTrackObject instance = GameObject.Instantiate(trackingPrefab, worldSpaceCanvas.transform);
+            instance.Track(trackedObj, offset);
+            return instance.gameObject;
+        }
+
+        public GameObject AddTracking(UiTrackObject trackingPrefab, GameObject trackedObj)
+        {
+            return AddTracking(trackingPrefab, trackedObj, Vector3.zero);
+        }
     }
 
 }
