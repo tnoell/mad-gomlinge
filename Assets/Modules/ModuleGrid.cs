@@ -8,7 +8,7 @@ using static DirectionUtil;
 public class ModuleGrid : MonoBehaviour
 {
     [SerializeField] private Vector2Int size;
-    [SerializeField] private Vector2Int centerPos;
+    [SerializeField] private Vector2Int startModulePos;
     [SerializeField] private Module startModule;
     private class ModuleSlot
     {
@@ -57,7 +57,7 @@ public class ModuleGrid : MonoBehaviour
             moduleSlots.Add(new ModuleSlot());
         }
         Module module = GameObject.Instantiate(startModule, transform);
-        SetModule(centerPos, module);
+        SetModule(startModulePos, module);
     }
 
     int? Index(int x, int y)
@@ -136,13 +136,31 @@ public class ModuleGrid : MonoBehaviour
     void PlaceCurrentModule(Vector2Int pos)
     {
         ModuleHolder moduleHolder = GameObject.FindWithTag("GameManager").GetComponent<ModuleHolder>();
-        Module newModule = moduleHolder.GetCurrentModule();
-        SetModule(pos, newModule);
+        Module module = moduleHolder.PopModule();
+        SetModule(pos, module);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        Rect gridArea = new Rect(
+            transform.position.x - 0.5f,
+            transform.position.y - 0.5f,
+            size.x,
+            size.y
+        );
+        Util.DrawRect(gridArea, Color.blue);
+
+        Vector3 globalStartModulePos = transform.position + (Vector3)(Vector2)startModulePos;
+        Rect startModuleArea = new Rect(
+            globalStartModulePos.x - 0.5f,
+            globalStartModulePos.y - 0.5f,
+            1, 1);
+        Util.DrawRect(startModuleArea, Color.red);
     }
 }

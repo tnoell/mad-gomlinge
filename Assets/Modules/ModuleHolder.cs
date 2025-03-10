@@ -1,13 +1,20 @@
+using Ui;
 using UnityEngine;
 
 public class ModuleHolder : MonoBehaviour
 {
-    [SerializeField] private Module currentModule;
+    private Module currentModule;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentModule = null;
+        UpdateAttachmentPointVisibility();
+    }
+
+    void UpdateAttachmentPointVisibility()
+    {
+        UiManager.GetInstance().EnableAttachmentPoints(currentModule != null);
     }
 
     // Update is called once per frame
@@ -16,15 +23,17 @@ public class ModuleHolder : MonoBehaviour
         
     }
 
-    public Module GetCurrentModule()
+    public Module PopModule()
     {
-        // placeholder: always give same Module
-        Module moduleInstance = GameObject.Instantiate(currentModule);
-        return moduleInstance;
+        Module module = currentModule;
+        currentModule = null;
+        UpdateAttachmentPointVisibility();
+        return module;
     }
 
-    public void HoldModule(Module module)
+    public void PushModule(Module module)
     {
         currentModule = module;
+        UpdateAttachmentPointVisibility();
     }
 }

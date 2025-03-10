@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UiManager
   - GameManager
+  - EnvironmentRoot
   layers:
   - Default
   - TransparentFX

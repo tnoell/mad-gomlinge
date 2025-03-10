@@ -26,11 +26,10 @@ public class Module : MonoBehaviour
 
     void OnClicked()
     {
-        Debug.Log(gameObject.name + " clicked");
         if(onGround)
         {
             ModuleHolder moduleHolder = GameObject.FindWithTag("GameManager").GetComponent<ModuleHolder>();
-            moduleHolder.HoldModule(this);
+            moduleHolder.PushModule(this);
         }
         else
         {

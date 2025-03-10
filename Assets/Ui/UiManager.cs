@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Ui
@@ -28,9 +27,6 @@ namespace Ui
         {
             instance = this;
             worldSpaceCanvas.worldCamera = Camera.main;
-#if UNITY_EDITOR
-            SceneVisibilityManager.instance.Hide(gameObject, true);
-#endif
         }
 
         private void Start()
@@ -58,6 +54,11 @@ namespace Ui
             AttachmentPoint ap = GameObject.Instantiate(attachmentPointPrefab, attachmentPointHolder);
             ap.GetComponent<UiTrackObject>().Track(trackedObj, offset);
             return ap;
+        }
+
+        public void EnableAttachmentPoints(bool enable)
+        {
+            attachmentPointHolder.gameObject.SetActive(enable);
         }
 
         public GameObject AddTracking(UiTrackObject trackingPrefab, GameObject trackedObj, Vector3 offset)
