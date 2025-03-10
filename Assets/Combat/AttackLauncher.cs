@@ -7,6 +7,7 @@ public class AttackLauncher : MonoBehaviour
 {
     [SerializeField] private AttackMovement attackPrefab;
     [SerializeField] private float interval;
+    [SerializeField] private Transform attackOrigin;
     private float timePassed;
     private Combatant combatant;
 
@@ -32,7 +33,7 @@ public class AttackLauncher : MonoBehaviour
         {
             timePassed -= interval;
             AttackMovement attackInstance = GameObject.Instantiate(attackPrefab);
-            attackInstance.transform.position = transform.position;
+            attackInstance.transform.position = attackOrigin.position;
             attackInstance.Launch(combatant, target);
         }
     }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5618619764089368372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7043399509377805061}
+  m_Layer: 0
+  m_Name: AttackOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7043399509377805061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618619764089368372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.849, y: -0.128, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3586064155368213388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3488072040482436332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50,19 +81,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Name
-      value: Cannon
+      value: Machinegun
       objectReference: {fileID: 0}
     - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f3fd38a30349e4543a9ce5d9aee4b2c7, type: 3}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.b
-      value: 0.18431373
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.g
-      value: 0.08235294
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.r
-      value: 0.5372549
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.size
@@ -110,12 +145,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7043399509377805061}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 283487973738023940}
   m_SourcePrefab: {fileID: 100100000, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+--- !u!4 &3586064155368213388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+  m_PrefabInstance: {fileID: 3488072040482436332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4505808017230387832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -135,3 +178,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
   interval: 1
+  attackOrigin: {fileID: 7043399509377805061}
