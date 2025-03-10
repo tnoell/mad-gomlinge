@@ -52,17 +52,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Module1
       objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.93333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3647059
+      objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.b
-      value: 0.5720814
+      value: 0.57254905
       objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.g
-      value: 0.9339623
+      value: 0.9333334
       objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.r
-      value: 0.36565503
+      value: 0.3647059
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,7 +13,7 @@ public class ModuleSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(Time.fixedTime > nextSpawnTime)
         {

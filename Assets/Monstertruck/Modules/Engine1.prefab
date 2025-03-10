@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Engine1
       objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 995216cd5e510a54eaa9ae6868414c1c, type: 3}
     - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: spriteWhenAttached
       value: 
@@ -63,7 +67,19 @@ PrefabInstance:
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 995216cd5e510a54eaa9ae6868414c1c, type: 3}
+      objectReference: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+    - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18836774
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45810258
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

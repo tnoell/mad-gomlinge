@@ -6,22 +6,25 @@ public class Module : MonoBehaviour
 {
     private bool onGround = false;
     [SerializeField] private UiTrackObject clickRegistrarPrefab;
-    [SerializeField] private Sprite spriteWhenOnGround;
-    [SerializeField] private Sprite spriteWhenAttached;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject visualWhenOnGround;
+    [SerializeField] private GameObject visualWhenAttached;
     protected bool needsMaintenance = false;
 
-    public void SetOnGround(bool onGround)
+    public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
     {
-        if(this.onGround == onGround) return;
         this.onGround = onGround;
-        UpdateSprite();
-    }
-
-    private void UpdateSprite()
-    {
-        Sprite sprite = onGround ? spriteWhenOnGround : spriteWhenAttached;
-        spriteRenderer.sprite = sprite;
+        GameObject[] visuals = new GameObject[]{visualWhenOnGround, visualWhenAttached};
+        foreach(GameObject visual in visuals)
+        {
+            visual.SetActive(false);
+        }
+        GameObject activeVisual = visuals[onGround ? 0 : 1];
+        activeVisual.SetActive(true);
+        SpriteRenderer[] renderers = activeVisual.GetComponentsInChildren<SpriteRenderer>(false);
+        foreach(SpriteRenderer renderer in renderers)
+        {
+            renderer.sortingOrder = spriteOrderInLayer;
+        }
     }
 
     void OnClicked()
@@ -46,7 +49,6 @@ public class Module : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UpdateSprite();
         GameObject clickRegistrar = UiManager.GetInstance().AddTracking(clickRegistrarPrefab, gameObject);
         clickRegistrar.GetComponent<Button>().onClick.AddListener(OnClicked);
     }

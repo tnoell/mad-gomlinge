@@ -87,7 +87,7 @@ public class ModuleGrid : MonoBehaviour
         moduleInstance.transform.parent = transform;
         moduleInstance.transform.localPosition = new Vector3(pos.x, pos.y, 0);
         moduleSlots[index].module = moduleInstance;
-        moduleInstance.SetOnGround(false);
+        moduleInstance.SetOnGround(false, moduleSlots.Count - index);
 
         foreach(Direction dir in AllDirections())
         {
