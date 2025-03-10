@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 120573901927792480}
   - component: {fileID: 2962760620139876586}
+  - component: {fileID: -4602310897641578391}
   m_Layer: 0
   m_Name: Module
   m_TagString: Untagged
@@ -49,6 +50,28 @@ MonoBehaviour:
   clickRegistrarPrefab: {fileID: 342284682201591493, guid: bc1063b0177db5140825e83a680bd6a9, type: 3}
   visualWhenOnGround: {fileID: 1796925953230744106}
   visualWhenAttached: {fileID: 6793494925505825443}
+--- !u!95 &-4602310897641578391
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076298251330825876}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1796925953230744106
 GameObject:
   m_ObjectHideFlags: 0
