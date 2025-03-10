@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3488072040482436332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Name
+      value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.08235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379445820233229055, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 283487973738023940}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateCombatant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Combat.AttackLauncher, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793494925505825443, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18362762
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.083704166
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283487973738023940}
+  m_SourcePrefab: {fileID: 100100000, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+--- !u!1 &4505808017230387832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+  m_PrefabInstance: {fileID: 3488072040482436332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &283487973738023940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505808017230387832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554cf587fb4c05c4e8c82aaa066bcf73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
+  interval: 1

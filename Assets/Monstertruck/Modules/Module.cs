@@ -1,11 +1,13 @@
 using Ui;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Module : MonoBehaviour
 {
-    private bool onGround = false;
+    public UnityEvent onAttachChange;
     [SerializeField] private UiTrackObject clickRegistrarPrefab;
+    private bool onGround = false;
     [SerializeField] private GameObject visualWhenOnGround;
     [SerializeField] private GameObject visualWhenAttached;
     protected bool needsMaintenance = false;
@@ -13,6 +15,7 @@ public class Module : MonoBehaviour
     public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
     {
         this.onGround = onGround;
+        onAttachChange.Invoke();
         GameObject[] visuals = new GameObject[]{visualWhenOnGround, visualWhenAttached};
         foreach(GameObject visual in visuals)
         {
