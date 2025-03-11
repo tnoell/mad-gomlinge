@@ -68,6 +68,34 @@ PrefabInstance:
       propertyPath: spriteWhenOnGround
       value: 
       objectReference: {fileID: 21300000, guid: 995216cd5e510a54eaa9ae6868414c1c, type: 3}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4927467543233142306}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttachChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StatChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: onAttachChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -91,6 +119,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6501681782747879732}
+    - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4927467543233142306}
     - targetCorrespondingSourceObject: {fileID: 1796925953230744106, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7987343687516702594}
@@ -158,6 +189,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4927467543233142306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455524606365987030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b714c27d976a544b022a59ba654a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
+  stat: 0
 --- !u!1 &4176046861013873768 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1796925953230744106, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}

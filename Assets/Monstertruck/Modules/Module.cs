@@ -15,7 +15,6 @@ public class Module : MonoBehaviour
     public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
     {
         this.onGround = onGround;
-        onAttachChange.Invoke();
         GameObject[] visuals = new GameObject[]{visualWhenOnGround, visualWhenAttached};
         foreach(GameObject visual in visuals)
         {
@@ -28,6 +27,7 @@ public class Module : MonoBehaviour
         {
             renderer.sortingOrder = spriteOrderInLayer;
         }
+        onAttachChange.Invoke();
     }
 
     void OnClicked()
@@ -59,5 +59,10 @@ public class Module : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public bool IsAttached()
+    {
+        return !onGround;
     }
 }

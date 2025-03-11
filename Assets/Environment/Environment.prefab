@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollingTransform: {fileID: 5681056530038369145}
-  scrollSpeedFactor: 0
+  scrollSpeedFactor: 2
   itemSpawnArea:
     serializedVersion: 2
     x: -4.34
