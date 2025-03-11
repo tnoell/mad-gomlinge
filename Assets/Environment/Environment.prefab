@@ -86,8 +86,8 @@ MonoBehaviour:
     y: -7.29
     width: 13
     height: 0.54
-  enemySpawnPoint: {x: 0, y: 4.13}
-  enemyTargetPos: {x: 0, y: 0}
+  enemySpawnPoint: {x: 4.29, y: 7.65}
+  enemyTargetPos: {x: 4.29, y: -2.86}
 --- !u!114 &2255888300666039726
 MonoBehaviour:
   m_ObjectHideFlags: 0
