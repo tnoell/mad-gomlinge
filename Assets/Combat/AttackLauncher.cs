@@ -32,8 +32,9 @@ public class AttackLauncher : MonoBehaviour
         if(timePassed >= interval)
         {
             timePassed -= interval;
-            AttackMovement attackInstance = GameObject.Instantiate(attackPrefab);
-            attackInstance.transform.position = attackOrigin.position;
+            Vector3 position = transform.position;
+            if(attackOrigin) position = attackOrigin.position;
+            AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
             attackInstance.Launch(combatant, target);
         }
     }

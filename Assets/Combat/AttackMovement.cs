@@ -13,6 +13,7 @@ namespace Combat
             this.target = target;
             this.damageSource = source;
             LaunchImpl();
+            gameObject.SetActive(true);
         }
 
         protected abstract void LaunchImpl();

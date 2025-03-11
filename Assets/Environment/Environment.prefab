@@ -101,4 +101,5 @@ MonoBehaviour:
   - {fileID: 669237139175545959, guid: de5f0abdd65f83741bc91ae23c808a49, type: 3}
   - {fileID: 1834592447520924678, guid: 1488b6dd09e60fc42be9b7dab25142c6, type: 3}
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}
+  - {fileID: 1834592447520924678, guid: 70628d7ca2137384da2d03703f788b32, type: 3}
   spawnDelay: 2

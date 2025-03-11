@@ -26,7 +26,11 @@ namespace Combat
         // Update is called once per frame
         void Update()
         {
-            if(!target) return;
+            if(!target)
+            {
+                GameObject.Destroy(gameObject);
+                return;
+            }
             timeSpent += Time.deltaTime;
             float progress = timeSpent / totalTime;
             if(progress >= 1)

@@ -44,9 +44,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778726503295295735}
+  - component: {fileID: 2713407461840479856}
   m_Layer: 0
   m_Name: Truck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +69,20 @@ Transform:
   - {fileID: 6078746701420376537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2713407461840479856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369848468738793009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fafe597c2be2b45a4f9608bdcc4159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  maxHealth: 100
 --- !u!1001 &2792872098668320096
 PrefabInstance:
   m_ObjectHideFlags: 0
