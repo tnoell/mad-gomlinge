@@ -1,34 +1,13 @@
 fileFormatVersion: 2
-guid: 7c73f46c45d3e04458dc0ef3c9543f7a
+guid: dcf48b0acf2c7ac4297516ff7c076986
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4764132326990840058
-    second: SS_Engine_512x1024_8Fps_0
+      213: -463343005431644938
+    second: SS_Machinegun_firing 1024x512_8Fps_0
   - first:
-      213: -3678009336605930094
-    second: SS_Engine_512x1024_8Fps_1
-  - first:
-      213: -4417093781208565552
-    second: SS_Engine_512x1024_8Fps_2
-  - first:
-      213: 5019656800394256221
-    second: SS_Engine_512x1024_8Fps_3
-  - first:
-      213: 3186322624523872687
-    second: SS_Engine_512x1024_8Fps_4
-  - first:
-      213: 2035260974709600950
-    second: SS_Engine_512x1024_8Fps_5
-  - first:
-      213: 5966208210067618131
-    second: SS_Engine_512x1024_8Fps_6
-  - first:
-      213: 1398103139638038927
-    second: SS_Engine_512x1024_8Fps_7
-  - first:
-      213: 942742139579660732
-    second: SS_Engine_512x1024_8Fps_8
+      213: 7263843224431105221
+    second: SS_Machinegun_firing 1024x512_8Fps_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,89 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SS_Engine_512x1024_8Fps_0
+      name: SS_Machinegun_firing 1024x512_8Fps_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 1024
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fcb510ddffd199f0800000000000000
+      internalID: -463343005431644938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SS_Machinegun_firing 1024x512_8Fps_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 1024
+        width: 1024
+        height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2be4cdf91214f67419282030b0387ad2
-      internalID: -680831955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Engine_512x1024_8Fps_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6af0016f86c25541b899b7ac55a2851
-      internalID: 1264583541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Engine_512x1024_8Fps_2
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 512
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7462c6abf78c6c24aac83cb3402b2d9f
-      internalID: 966242210
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Engine_512x1024_8Fps_3
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 512
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80396361e49a59f40a4378f2dd6e9369
-      internalID: -1652513237
+      spriteID: 5c418585dea5ec460800000000000000
+      internalID: 7263843224431105221
       vertices: []
       indices: 
       edges: []
@@ -215,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 122d12322d0ada042a973937143f6bb2
+    spriteID: d237c821669afdf4c82ebc3ac1b502ed
     internalID: 0
     vertices: []
     indices: 
@@ -225,10 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SS_Engine_512x1024_8Fps_0: -680831955
-      SS_Engine_512x1024_8Fps_1: 1264583541
-      SS_Engine_512x1024_8Fps_2: 966242210
-      SS_Engine_512x1024_8Fps_3: -1652513237
+      SS_Machinegun_firing 1024x512_8Fps_0: -463343005431644938
+      SS_Machinegun_firing 1024x512_8Fps_1: 7263843224431105221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
