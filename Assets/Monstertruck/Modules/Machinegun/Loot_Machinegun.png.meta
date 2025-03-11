@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: dcf48b0acf2c7ac4297516ff7c076986
+guid: cfa2af706a1f46e43b5bd812dc01726b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -463343005431644938
-    second: SS_Machinegun_firing 1024x512_8Fps_0
+      213: -5764833811659881116
+    second: Loot_Machinegun_0
   - first:
-      213: 7263843224431105221
-    second: SS_Machinegun_firing 1024x512_8Fps_1
+      213: 2655103537089591495
+    second: Loot_Machinegun_1
+  - first:
+      213: 2907833573700597670
+    second: Loot_Machinegun_2
+  - first:
+      213: -2152963104918614634
+    second: Loot_Machinegun_3
+  - first:
+      213: 3598409873899875629
+    second: Loot_Machinegun_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,45 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SS_Machinegun_firing 1024x512_8Fps_0
+      name: Loot_Machinegun_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 510
-        width: 1024
-        height: 512
+        x: 50
+        y: 218
+        width: 17
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fcb510ddffd199f0800000000000000
-      internalID: -463343005431644938
+      spriteID: 4650ad211323fffa0800000000000000
+      internalID: -5764833811659881116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Machinegun_firing 1024x512_8Fps_1
+      name: Loot_Machinegun_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 512
+        x: 52
+        y: 151
+        width: 412
+        height: 316
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c418585dea5ec460800000000000000
-      internalID: 7263843224431105221
+      spriteID: 7c8bb128992d8d420800000000000000
+      internalID: 2655103537089591495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loot_Machinegun_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 102
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7f06a9a33ba5820800000000000000
+      internalID: 2907833573700597670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loot_Machinegun_3
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 141
+        width: 129
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69dcdc486732f12e0800000000000000
+      internalID: -2152963104918614634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loot_Machinegun_4
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 132
+        width: 21
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d6f0217be10f130800000000000000
+      internalID: 3598409873899875629
       vertices: []
       indices: 
       edges: []
@@ -163,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d237c821669afdf4c82ebc3ac1b502ed
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SS_Machinegun_firing 1024x512_8Fps_0: -463343005431644938
-      SS_Machinegun_firing 1024x512_8Fps_1: 7263843224431105221
+      Loot_Machinegun_0: -5764833811659881116
+      Loot_Machinegun_1: 2655103537089591495
+      Loot_Machinegun_2: 2907833573700597670
+      Loot_Machinegun_3: -2152963104918614634
+      Loot_Machinegun_4: 3598409873899875629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
