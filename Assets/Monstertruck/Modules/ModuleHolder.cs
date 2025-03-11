@@ -20,7 +20,10 @@ public class ModuleHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!currentModule) return;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        currentModule.transform.position = pos;
     }
 
     public Module PopModule()

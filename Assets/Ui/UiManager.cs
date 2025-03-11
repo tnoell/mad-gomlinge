@@ -10,6 +10,7 @@ namespace Ui
     public class UiManager : MonoBehaviour
     {
         [SerializeField] private Canvas worldSpaceCanvas;
+        [SerializeField] private Transform trackingObjectsHolder;
         [SerializeField] private Transform attachmentPointHolder;
         [SerializeField] private AttachmentPoint attachmentPointPrefab;
         private static UiManager instance = null;
@@ -63,7 +64,7 @@ namespace Ui
 
         public GameObject AddTracking(UiTrackObject trackingPrefab, GameObject trackedObj, Vector3 offset)
         {
-            UiTrackObject instance = GameObject.Instantiate(trackingPrefab, worldSpaceCanvas.transform);
+            UiTrackObject instance = GameObject.Instantiate(trackingPrefab, trackingObjectsHolder);
             instance.Track(trackedObj, offset);
             return instance.gameObject;
         }

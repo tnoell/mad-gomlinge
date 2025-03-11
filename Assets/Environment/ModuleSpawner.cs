@@ -18,7 +18,7 @@ public class ModuleSpawner : MonoBehaviour
         if(Time.fixedTime > nextSpawnTime)
         {
             Module prefab = modulePrefabs[Random.Range(0, modulePrefabs.Length)];
-            GameObject instance = Environment.GetInstance().Spawn(prefab.gameObject);
+            GameObject instance = Environment.GetInstance().Spawn(prefab.gameObject, SpawnMode.item);
             instance.GetComponent<Module>().SetOnGround(true);
             nextSpawnTime = Time.fixedTime + spawnDelay;
         }

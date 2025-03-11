@@ -50,5 +50,17 @@ TagManager:
   - name: ModuleGrid
     uniqueID: 449168017
     locked: 0
+  - name: WorldObjects
+    uniqueID: 677230955
+    locked: 0
+  - name: WorldUi
+    uniqueID: 458114395
+    locked: 0
+  - name: OtherUi
+    uniqueID: 3684403255
+    locked: 0
+  - name: MenuUi
+    uniqueID: 498259429
+    locked: 0
   m_RenderingLayers:
   - Default
