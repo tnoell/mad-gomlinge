@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 
 namespace Combat
@@ -9,9 +10,12 @@ public class AttackLauncher : MonoBehaviour
     [SerializeField] private float interval;
     [SerializeField] private Transform attackOrigin;
     [SerializeField] private bool startCharged = false;
-
+    [SerializeField] private Animator shotAnimator;
     private float timePassed;
     private Combatant combatant;
+    Combatant target;
+        [SerializeField] private int nAttacks;
+        private int nAttacksLeft;
 
     void Awake()
     {
@@ -32,17 +36,37 @@ public class AttackLauncher : MonoBehaviour
     void FixedUpdate()
     {
         if (!combatant) return;
-        Combatant target = combatant.GetTarget();
+        target = combatant.GetTarget();
         if (!target) return;
         timePassed += Time.fixedDeltaTime;
         if(timePassed >= interval)
         {
             timePassed -= interval;
-            Vector3 position = transform.position;
-            if(attackOrigin) position = attackOrigin.position;
-            AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
-            attackInstance.Launch(combatant, target);
+
+                if (shotAnimator)
+                {
+                    nAttacksLeft = nAttacks;
+                    shotAnimator.SetTrigger("Fire");
+                   
+                }
+                else { FireGun();  }
+           
         }
     }
-}
+        public void FireGun()
+        {
+          
+            Vector3 position = transform.position;
+            if (attackOrigin) position = attackOrigin.position;
+            AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
+            attackInstance.Launch(combatant, target);
+            if (shotAnimator) 
+            {
+                nAttacksLeft--;
+                if (nAttacksLeft > 0)
+                { shotAnimator.SetTrigger("Fire"); }
+            }
+        }
+
+    }
 }
