@@ -14,11 +14,12 @@ public class Environment : MonoBehaviour
     public delegate void OnMove(float distance);
     public OnMove onMove;
     [SerializeField] private Transform scrollingTransform;
-    [SerializeField] private float scrollSpeed;
+    [SerializeField] private float scrollSpeedFactor;
     [FormerlySerializedAs("spawnArea")]
     [SerializeField] private Rect itemSpawnArea;
     [SerializeField] private Vector2 enemySpawnPoint;
     [SerializeField] private Vector2 enemyTargetPos;
+    private PlayerStats playerStats;
 
     private static Environment instance = null;
 
@@ -39,13 +40,13 @@ public class Environment : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float scrollDistance = Time.deltaTime * scrollSpeed;
+        float scrollDistance = Time.deltaTime * playerStats.GetSpeed() * scrollSpeedFactor;
         Vector3 pos = scrollingTransform.position;
         pos.y += scrollDistance;
         scrollingTransform.position = pos;

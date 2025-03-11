@@ -7,6 +7,7 @@ public class EnemySpawnSequence : MonoBehaviour
     [SerializeField] private float movementDuration;
     [SerializeField] private AnimationCurve positionByProgress;
     [SerializeField] private float registerAtPositionT;
+    [SerializeField] private float playerBaseSpeed = 0.2f;
     private PlayerStats playerStats;
     private float movementProgress;
     private Vector3 startPos;
@@ -42,7 +43,8 @@ public class EnemySpawnSequence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementProgress += Time.deltaTime / movementDuration / playerStats.GetSpeed();
+        movementProgress += Time.deltaTime
+            / movementDuration / (playerStats.GetSpeed() + playerBaseSpeed);
         if(movementProgress < 1)
         {
             float posT = positionByProgress.Evaluate(movementProgress);

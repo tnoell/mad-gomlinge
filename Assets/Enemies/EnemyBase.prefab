@@ -65,6 +65,8 @@ MonoBehaviour:
   interval: 1
   attackOrigin: {fileID: 0}
   startCharged: 1
+  shotAnimator: {fileID: 0}
+  nAttacks: 0
 --- !u!114 &6046665349915668146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,24 +80,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 4846939893023237502}
-  movementDuration: 4
+  movementDuration: 7
   positionByProgress:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.1105084
-      outSlope: 1.1105084
+      inSlope: 1.377634
+      outSlope: 1.377634
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7532617
-      value: 0.83650345
-      inSlope: 0.8865699
-      outSlope: 0.8865699
+      time: 0.61576474
+      value: 0.8482985
+      inSlope: 0.8862241
+      outSlope: 0.8862241
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -113,6 +115,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   registerAtPositionT: 0.2
+  playerBaseSpeed: 0.25
 --- !u!1 &1870666898114560365
 GameObject:
   m_ObjectHideFlags: 0
