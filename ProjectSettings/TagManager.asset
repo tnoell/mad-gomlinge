@@ -47,10 +47,10 @@ TagManager:
   - name: Ground
     uniqueID: 3184391643
     locked: 0
-  - name: ModuleGrid
+  - name: Characters
     uniqueID: 449168017
     locked: 0
-  - name: WorldObjects
+  - name: Attacks
     uniqueID: 677230955
     locked: 0
   - name: WorldUi
