@@ -10,7 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1197977357532048725, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
       propertyPath: m_Name
-      value: EnemyBase
+      value: TealEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657428422536552800, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657428422536552800, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657428422536552800, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8039216
       objectReference: {fileID: 0}
     - target: {fileID: 7132143976459668552, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
       propertyPath: m_LocalPosition.x

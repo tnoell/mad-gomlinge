@@ -87,6 +87,7 @@ MonoBehaviour:
     width: 13
     height: 0.54
   enemySpawnPoint: {x: 0, y: 4.13}
+  enemyTargetPos: {x: 0, y: 0}
 --- !u!114 &2255888300666039726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,9 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabSequence:
-  - {fileID: 8303510918683172172, guid: 86e15963c60ee0e43a5adeb3b67cd2dc, type: 3}
-  - {fileID: 8303510918683172172, guid: b7bc24cd2b6d27a41890359072b96e45, type: 3}
-  - {fileID: 8303510918683172172, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
+  - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
+  - {fileID: 1342432480219116061, guid: 54747589f9b4e1b42bf28f112af67718, type: 3}
+  - {fileID: 1342432480219116061, guid: 5efbd400a0cb7da45847ef2cee1b0e74, type: 3}
   onFinish:
     m_PersistentCalls:
       m_Calls: []

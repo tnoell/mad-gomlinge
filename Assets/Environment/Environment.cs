@@ -16,6 +16,7 @@ public class Environment : MonoBehaviour
     [FormerlySerializedAs("spawnArea")]
     [SerializeField] private Rect itemSpawnArea;
     [SerializeField] private Vector2 enemySpawnPoint;
+    [SerializeField] private Vector2 enemyTargetPos;
 
     private static Environment instance = null;
 
@@ -64,11 +65,18 @@ public class Environment : MonoBehaviour
         }
         
     }
+
+    public Vector2 GetEnemyTargetPos()
+    {
+        return enemyTargetPos;
+    }
     
     void OnDrawGizmosSelected()
     {
         Util.DrawRect(itemSpawnArea, Color.blue);
         Gizmos.color = Color.red;
         Gizmos.DrawSphere((Vector3)enemySpawnPoint, 0.5f);
+        Gizmos.color = new Color(224 / 255.0f, 109 / 255.0f, 15 / 255.0f);
+        Gizmos.DrawSphere((Vector3)enemyTargetPos, 0.5f);
     }
 }
