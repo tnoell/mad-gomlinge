@@ -49,22 +49,20 @@ public class Environment : MonoBehaviour
 
     public GameObject Spawn(GameObject prefab, SpawnMode spawnMode)
     {
-        Vector3 position;
         switch(spawnMode)
         {
         case SpawnMode.item:
-            position = new Vector3(
+            Vector3 position = new Vector3(
             Random.Range(itemSpawnArea.xMin, itemSpawnArea.xMax),
             Random.Range(itemSpawnArea.yMin, itemSpawnArea.yMax),
             0);
-            break;
+            return GameObject.Instantiate(prefab, position, Quaternion.identity, scrollingTransform);
         case SpawnMode.enemy:
-            position = (Vector3)enemySpawnPoint;
-            break;
+            return GameObject.Instantiate(prefab, (Vector3)enemySpawnPoint, Quaternion.identity, transform);
         default:
             throw new Exception("SpawnMode not implemented: " + spawnMode);
         }
-        return GameObject.Instantiate(prefab, position, Quaternion.identity, scrollingTransform);
+        
     }
     
     void OnDrawGizmosSelected()

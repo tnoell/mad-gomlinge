@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5250385884054300669}
   - component: {fileID: 509154816937853831}
   - component: {fileID: 2255888300666039726}
+  - component: {fileID: 5337969918009183711}
   m_Layer: 0
   m_Name: Environment
   m_TagString: EnvironmentRoot
@@ -79,12 +80,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollingTransform: {fileID: 5681056530038369145}
   scrollSpeed: 3
-  spawnArea:
+  itemSpawnArea:
     serializedVersion: 2
     x: -4.34
     y: -7.29
     width: 13
     height: 0.54
+  enemySpawnPoint: {x: 0, y: 4.13}
 --- !u!114 &2255888300666039726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,3 +105,22 @@ MonoBehaviour:
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}
   - {fileID: 1834592447520924678, guid: 70628d7ca2137384da2d03703f788b32, type: 3}
   spawnDelay: 2
+--- !u!114 &5337969918009183711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797094108464756854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc10e4a25eb22f4f9105574ddd3395d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabSequence:
+  - {fileID: 8303510918683172172, guid: 86e15963c60ee0e43a5adeb3b67cd2dc, type: 3}
+  - {fileID: 8303510918683172172, guid: b7bc24cd2b6d27a41890359072b96e45, type: 3}
+  - {fileID: 8303510918683172172, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
+  onFinish:
+    m_PersistentCalls:
+      m_Calls: []
