@@ -11,6 +11,8 @@ public enum SpawnMode
 
 public class Environment : MonoBehaviour
 {
+    public delegate void OnMove(float distance);
+    public OnMove onMove;
     [SerializeField] private Transform scrollingTransform;
     [SerializeField] private float scrollSpeed;
     [FormerlySerializedAs("spawnArea")]
@@ -43,9 +45,11 @@ public class Environment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float scrollDistance = Time.deltaTime * scrollSpeed;
         Vector3 pos = scrollingTransform.position;
-        pos.y += Time.deltaTime * scrollSpeed;
+        pos.y += scrollDistance;
         scrollingTransform.position = pos;
+        onMove?.Invoke(scrollDistance);
     }
 
     public GameObject Spawn(GameObject prefab, SpawnMode spawnMode)
