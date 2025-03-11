@@ -83,9 +83,9 @@ MonoBehaviour:
   scrollSpeedFactor: 2
   itemSpawnArea:
     serializedVersion: 2
-    x: -4.34
+    x: -0.95
     y: -7.29
-    width: 13
+    width: 9.47
     height: 0.54
   enemySpawnPoint: {x: 4.29, y: 7.65}
   enemyTargetPos: {x: 4.29, y: -2.86}

@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class Module : MonoBehaviour
 {
     public UnityEvent onAttachChange;
+    public UnityEvent onDoMaintenance;
     [SerializeField] private UiTrackObject clickRegistrarPrefab;
     private bool onGround = false;
     [SerializeField] private GameObject visualWhenOnGround;
     [SerializeField] private GameObject visualWhenAttached;
-    protected bool needsMaintenance = false;
 
     public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
     {
@@ -39,13 +39,8 @@ public class Module : MonoBehaviour
         }
         else
         {
-            DoMaintenance();
+            onDoMaintenance.Invoke();
         }
-    }
-
-    protected virtual void DoMaintenance()
-    {
-        needsMaintenance = false;
     }
 
 

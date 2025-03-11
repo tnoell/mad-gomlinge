@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 120573901927792480}
   - component: {fileID: 2962760620139876586}
   - component: {fileID: 6194618591607940752}
+  - component: {fileID: 4564963438270272741}
+  - component: {fileID: -6229174496619270659}
   m_Layer: 0
   m_Name: Module
   m_TagString: Untagged
@@ -50,6 +52,9 @@ MonoBehaviour:
   onAttachChange:
     m_PersistentCalls:
       m_Calls: []
+  onDoMaintenance:
+    m_PersistentCalls:
+      m_Calls: []
   clickRegistrarPrefab: {fileID: 342284682201591493, guid: bc1063b0177db5140825e83a680bd6a9, type: 3}
   visualWhenOnGround: {fileID: 1796925953230744106}
   visualWhenAttached: {fileID: 6793494925505825443}
@@ -63,6 +68,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c51961b991130f546b7625f79f631fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4564963438270272741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076298251330825876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb262ed5e76591242a9f42ba4da749dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onExpired:
+    m_PersistentCalls:
+      m_Calls: []
+  onRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  interval: 10
+--- !u!114 &-6229174496619270659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076298251330825876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8227a21ffac1a459af97ba793be4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1796925953230744106
