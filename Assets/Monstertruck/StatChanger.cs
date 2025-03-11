@@ -5,11 +5,11 @@ public class StatChanger : MonoBehaviour
 {
     [SerializeField] float amount;
     [SerializeField] private PlayerStats.Stat stat;
-    private bool applied;
+    private PlayerStats.StatChange appliedStatChange;
 
     void Awake()
     {
-        applied = false;
+        appliedStatChange = null;
     }
 
     public void OnAttachChanged()
@@ -21,11 +21,25 @@ public class StatChanger : MonoBehaviour
         }
     }
 
+    [ContextMenu("ToggleStat")]
+    private void ToggleStat()
+    {
+        if(appliedStatChange == null)
+            Apply();
+        else
+            Unapply();
+    }
+
     public void Apply()
     {
-        if(applied) throw new Exception("Already applied");
-        PlayerStats.StatChange change = new PlayerStats.StatChange(stat, amount, gameObject);
-        GameObject.FindWithTag("Player").GetComponent<PlayerStats>().AddChange(change);
-        applied = true;
+        if(appliedStatChange != null) throw new Exception("Already applied");
+        appliedStatChange = new PlayerStats.StatChange(stat, amount, gameObject);
+        GameObject.FindWithTag("Player").GetComponent<PlayerStats>().AddChange(appliedStatChange);
+    }
+
+    public void Unapply()
+    {
+        appliedStatChange.Destroy();
+        appliedStatChange = null;
     }
 }
