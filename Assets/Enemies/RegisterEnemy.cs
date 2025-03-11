@@ -7,6 +7,8 @@ public class RegisterEnemy : MonoBehaviour
     void Start()
     {
         Combatant player = GameObject.FindWithTag("Player").GetComponent<Combatant>();
-        player.SetTarget(GetComponent<Combatant>());
+        Combatant self = GetComponent<Combatant>();
+        player.SetTarget(self);
+        self.SetTarget(player);
     }
 }

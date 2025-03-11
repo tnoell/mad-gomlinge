@@ -29,7 +29,7 @@ namespace Combat
         public float GetHealthFraction() { return currentHealth / maxHealth; }
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             currentHealth = maxHealth;
             currentTarget = null;

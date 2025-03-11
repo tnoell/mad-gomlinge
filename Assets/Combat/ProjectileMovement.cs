@@ -9,12 +9,6 @@ namespace Combat
         private float timeSpent;
         private float totalTime;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-
-        }
-
         protected override void LaunchImpl()
         {
             startPoint = transform.position;

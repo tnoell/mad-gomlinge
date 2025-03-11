@@ -8,13 +8,19 @@ public class AttackLauncher : MonoBehaviour
     [SerializeField] private AttackMovement attackPrefab;
     [SerializeField] private float interval;
     [SerializeField] private Transform attackOrigin;
+    [SerializeField] private bool startCharged = false;
+
     private float timePassed;
     private Combatant combatant;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        timePassed = startCharged ? interval : 0;
+    }
+
     void Start()
     {
-        timePassed = 0;
+        UpdateCombatant();
     }
 
     public void UpdateCombatant()
