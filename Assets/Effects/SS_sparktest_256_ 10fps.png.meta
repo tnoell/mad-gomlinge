@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 24c1818121051514dafbf17612e6e8f7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4390846669651751126
+    second: SS_sparktest_256_ 10fps_0
+  - first:
+      213: -1022568174344149833
+    second: SS_sparktest_256_ 10fps_1
+  - first:
+      213: 1994905912100783574
+    second: SS_sparktest_256_ 10fps_2
+  - first:
+      213: 8751165805319566776
+    second: SS_sparktest_256_ 10fps_3
+  - first:
+      213: 1384652949316526271
+    second: SS_sparktest_256_ 10fps_4
+  - first:
+      213: -1609499467554277847
+    second: SS_sparktest_256_ 10fps_5
+  - first:
+      213: -2609055213682035397
+    second: SS_sparktest_256_ 10fps_6
+  - first:
+      213: -5416752728382622018
+    second: SS_sparktest_256_ 10fps_7
+  - first:
+      213: -6939503141690664124
+    second: SS_sparktest_256_ 10fps_8
+  - first:
+      213: 8493076968302428020
+    second: SS_sparktest_256_ 10fps_9
+  - first:
+      213: 3636570045694319346
+    second: SS_sparktest_256_ 10fps_10
+  - first:
+      213: -6732454409285487883
+    second: SS_sparktest_256_ 10fps_11
+  - first:
+      213: 6471528347406241865
+    second: SS_sparktest_256_ 10fps_12
+  - first:
+      213: -1484176677225851606
+    second: SS_sparktest_256_ 10fps_13
+  - first:
+      213: -6455024284716265875
+    second: SS_sparktest_256_ 10fps_14
+  - first:
+      213: 5467607124680934575
+    second: SS_sparktest_256_ 10fps_15
+  - first:
+      213: 4981979355999034959
+    second: SS_sparktest_256_ 10fps_16
+  - first:
+      213: -3324197545433601051
+    second: SS_sparktest_256_ 10fps_17
+  - first:
+      213: 1230275745056743704
+    second: SS_sparktest_256_ 10fps_18
+  - first:
+      213: -728843305384240440
+    second: SS_sparktest_256_ 10fps_19
+  - first:
+      213: -8672455307354999453
+    second: SS_sparktest_256_ 10fps_20
+  - first:
+      213: -6471067878130470709
+    second: SS_sparktest_256_ 10fps_21
+  - first:
+      213: 5385297263336520540
+    second: SS_sparktest_256_ 10fps_22
+  - first:
+      213: -7032451162426315624
+    second: SS_sparktest_256_ 10fps_23
+  - first:
+      213: -1308629875379735055
+    second: SS_sparktest_256_ 10fps_24
+  - first:
+      213: 9145917804274532991
+    second: SS_sparktest_256_ 10fps_25
+  - first:
+      213: -5281711076502831266
+    second: SS_sparktest_256_ 10fps_26
+  - first:
+      213: 8400521448101474995
+    second: SS_sparktest_256_ 10fps_27
+  - first:
+      213: -5518783500165145991
+    second: SS_sparktest_256_ 10fps_28
+  - first:
+      213: 5976702777473490321
+    second: SS_sparktest_256_ 10fps_29
+  - first:
+      213: 4845276549628627392
+    second: SS_sparktest_256_ 10fps_30
+  - first:
+      213: 330622715270357168
+    second: SS_sparktest_256_ 10fps_31
+  - first:
+      213: 5399217492143471212
+    second: SS_sparktest_256_ 10fps_32
+  - first:
+      213: -274246199640728541
+    second: SS_sparktest_256_ 10fps_33
+  - first:
+      213: 1834604009195845400
+    second: SS_sparktest_256_ 10fps_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SS_sparktest_256_ 10fps_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ca7a4b9f2c7184ab1eb962c496caa0
+      internalID: -425308900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SS_sparktest_256_ 10fps_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730a4c153454ed548b770ae36f235024
+      internalID: -2131532954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SS_sparktest_256_ 10fps_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25eac28a2098eaa4c8f02008bdf434b5
+      internalID: 1565467247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8c45317352aa82c4eabe3c7e975f95b7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SS_sparktest_256_ 10fps_0: -425308900
+      SS_sparktest_256_ 10fps_1: -2131532954
+      SS_sparktest_256_ 10fps_2: 1565467247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
