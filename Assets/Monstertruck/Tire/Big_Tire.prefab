@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3763467072787844342}
   - component: {fileID: 2968908992341170788}
   - component: {fileID: 3091015686103815957}
-  - component: {fileID: 2035767659324591281}
   m_Layer: 0
   m_Name: Big_Tire
   m_TagString: Untagged
@@ -111,19 +110,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &2035767659324591281
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008937855595164673}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 9d5700efdbf2e34419556b9b40a1f74b, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
