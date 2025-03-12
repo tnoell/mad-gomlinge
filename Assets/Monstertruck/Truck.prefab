@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Player
-  maxHealth: 100
+  maxHealth: 300
 --- !u!114 &210289262624735690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 0.8
   speedPerEnginePower: 0.2
-  debug_currentSpeed: 0
 --- !u!1001 &2792872098668320096
 PrefabInstance:
   m_ObjectHideFlags: 0

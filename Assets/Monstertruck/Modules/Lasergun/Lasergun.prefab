@@ -397,7 +397,7 @@ MonoBehaviour:
   attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
   interval: 5
   attackOrigin: {fileID: 7043399509377805061}
-  startCharged: 0
+  startCharged: 1
   shotAnimator: {fileID: 4504332763172910383}
   nAttacks: 4
 --- !u!114 &3747036478373702583

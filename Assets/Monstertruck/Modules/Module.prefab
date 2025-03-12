@@ -63,7 +63,7 @@ MonoBehaviour:
   clickRegistrarPrefab: {fileID: 342284682201591493, guid: bc1063b0177db5140825e83a680bd6a9, type: 3}
   visualWhenOnGround: {fileID: 1796925953230744106}
   visualWhenAttached: {fileID: 6793494925505825443}
-  damageWhenBroken: 10
+  damageWhenBroken: 50
   explosionPrefab: {fileID: 5907727736880586646, guid: d41380357c1dbcc4fabeabdac36213e4, type: 3}
 --- !u!114 &6194618591607940752
 MonoBehaviour:

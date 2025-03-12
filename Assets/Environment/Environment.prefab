@@ -104,10 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modulePrefabs:
   - {fileID: 1834592447520924678, guid: fbd557ccfd2f27d4cb162b9c7f75e315, type: 3}
-  - {fileID: 1834592447520924678, guid: 1488b6dd09e60fc42be9b7dab25142c6, type: 3}
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}
   - {fileID: 1834592447520924678, guid: 70628d7ca2137384da2d03703f788b32, type: 3}
-  spawnDistanceInterval: 10
+  spawnDistanceInterval: 5
 --- !u!114 &5337969918009183711
 MonoBehaviour:
   m_ObjectHideFlags: 0

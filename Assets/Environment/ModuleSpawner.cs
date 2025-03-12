@@ -9,7 +9,7 @@ public class ModuleSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        nextSpawnDistance = spawnDistanceInterval;
+        nextSpawnDistance = 0;
         Environment.GetInstance().onMove += Move;
     }
 
