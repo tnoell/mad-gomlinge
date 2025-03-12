@@ -12,8 +12,10 @@ namespace Ui
         [SerializeField] private Canvas worldSpaceCanvas;
         [SerializeField] private Transform trackingObjectsHolder;
         [SerializeField] private Transform attachmentPointHolder;
+        [SerializeField] private Transform minigameHolder;
         [SerializeField] private AttachmentPoint attachmentPointPrefab;
         private static UiManager instance = null;
+        private Minigame currentMinigame;
 
         public static UiManager GetInstance()
         {
@@ -72,6 +74,14 @@ namespace Ui
         public GameObject AddTracking(UiTrackObject trackingPrefab, GameObject trackedObj)
         {
             return AddTracking(trackingPrefab, trackedObj, Vector3.zero);
+        }
+
+        public Minigame StartMinigame(Minigame prefab)
+        {
+            if(currentMinigame) return null;
+            currentMinigame = GameObject.Instantiate(prefab,
+                    Vector3.zero, Quaternion.identity, minigameHolder);
+            return currentMinigame;
         }
     }
 
