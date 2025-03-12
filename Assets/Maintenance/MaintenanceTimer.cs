@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,7 @@ public class MaintenanceTimer : MonoBehaviour
 
     private float progress;
     private bool isBroken;
+    public bool IsBroken() { return isBroken; }
     private bool running;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,15 +38,26 @@ public class MaintenanceTimer : MonoBehaviour
         running = true;
     }
 
+    public void Pause(bool pause)
+    {
+        running = !pause;
+    }
+
     void FixedUpdate()
     {
         if(!running || isBroken) return;
-        progress += Time.fixedDeltaTime / duration;
-        if(progress >= 1)
+        ChangeProgress(Time.fixedDeltaTime / duration);
+    }
+
+    public void ChangeProgress(float amount)
+    {
+        progress += amount;
+        if(progress >= 1 && !isBroken)
         {
             isBroken = true;
             onExpired.Invoke();
         }
+        progress = Mathf.Clamp(progress, 0, 1);
     }
 
     public void DoMaintenance()

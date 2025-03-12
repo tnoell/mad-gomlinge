@@ -2,17 +2,19 @@ using UnityEngine;
 
 public abstract class MaintenanceTask : MonoBehaviour
 {
-    private MaintenanceTimer timer;
+    protected MaintenanceTimer maintenanceTimer;
     
-    void Start()
+    protected virtual void Awake()
     {
-        timer = GetComponent<MaintenanceTimer>();
+        maintenanceTimer = GetComponent<MaintenanceTimer>();
         GetComponent<Module>().onDoMaintenance.AddListener(OnDoMaintenance);
     }
 
+    protected virtual void FixedUpdate() {}
+
     protected void Complete()
     {
-        timer.DoMaintenance();
+        maintenanceTimer.DoMaintenance();
     }
 
     protected abstract void OnDoMaintenance();
