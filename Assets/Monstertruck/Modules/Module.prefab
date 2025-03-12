@@ -49,7 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6aa033bd952a44b989eed1bffce322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAttachChange:
+  onAttached:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnattached:
     m_PersistentCalls:
       m_Calls: []
   onDoMaintenance:
@@ -88,7 +91,7 @@ MonoBehaviour:
   onRestored:
     m_PersistentCalls:
       m_Calls: []
-  interval: 10
+  duration: 20
 --- !u!114 &-6229174496619270659
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ public class AttackLauncher : MonoBehaviour
     private float timePassed;
     private Combatant combatant;
     Combatant target;
-        [SerializeField] private int nAttacks;
-        private int nAttacksLeft;
+    [SerializeField] private int nAttacks;
+    private int nAttacksLeft;
 
     void Awake()
     {
@@ -43,30 +43,30 @@ public class AttackLauncher : MonoBehaviour
         {
             timePassed -= interval;
 
-                if (shotAnimator)
-                {
-                    nAttacksLeft = nAttacks;
-                    shotAnimator.SetTrigger("Fire");
-                   
-                }
-                else { FireGun();  }
-           
+            if (shotAnimator)
+            {
+                nAttacksLeft = nAttacks;
+                shotAnimator.SetTrigger("Fire");
+                
+            }
+            else { FireGun(); }
         }
     }
-        public void FireGun()
+
+    public void FireGun()
+    {
+        
+        Vector3 position = transform.position;
+        if (attackOrigin) position = attackOrigin.position;
+        AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
+        attackInstance.Launch(combatant, target);
+        if (shotAnimator) 
         {
-          
-            Vector3 position = transform.position;
-            if (attackOrigin) position = attackOrigin.position;
-            AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
-            attackInstance.Launch(combatant, target);
-            if (shotAnimator) 
-            {
-                nAttacksLeft--;
-                if (nAttacksLeft > 0)
-                { shotAnimator.SetTrigger("Fire"); }
-            }
+            nAttacksLeft--;
+            if (nAttacksLeft > 0)
+            { shotAnimator.SetTrigger("Fire"); }
         }
+    }
 
     }
 }

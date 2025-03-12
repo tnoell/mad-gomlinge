@@ -44,7 +44,6 @@ public class Environment : MonoBehaviour
                 background.transform.position + Vector3.down * scrollingStepSize,
                 Quaternion.identity, background.transform).transform;
         doubledBackground.localScale = Vector3.one;
-        Debug.Log(scrollingStepSize);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

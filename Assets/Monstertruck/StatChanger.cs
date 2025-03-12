@@ -12,15 +12,6 @@ public class StatChanger : MonoBehaviour
         appliedStatChange = null;
     }
 
-    public void OnAttachChanged()
-    {
-        Module module = GetComponent<Module>();
-        if(module.IsAttached())
-        {
-            Apply();
-        }
-    }
-
     [ContextMenu("ToggleStat")]
     private void ToggleStat()
     {
@@ -32,13 +23,14 @@ public class StatChanger : MonoBehaviour
 
     public void Apply()
     {
-        if(appliedStatChange != null) throw new Exception("Already applied");
+        if(appliedStatChange != null) return;
         appliedStatChange = new PlayerStats.StatChange(stat, amount, gameObject);
         GameObject.FindWithTag("Player").GetComponent<PlayerStats>().AddChange(appliedStatChange);
     }
 
     public void Unapply()
     {
+        if(appliedStatChange == null) return;
         appliedStatChange.Destroy();
         appliedStatChange = null;
     }

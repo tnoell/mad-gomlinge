@@ -2,15 +2,20 @@ using Ui;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
+using Combat;
 
 public class Module : MonoBehaviour
 {
-    public UnityEvent onAttachChange;
+    [FormerlySerializedAs("onAttachChange")] public UnityEvent onAttached;
+    public UnityEvent onUnattached;
     public UnityEvent onDoMaintenance;
     [SerializeField] private UiTrackObject clickRegistrarPrefab;
-    private bool onGround = false;
     [SerializeField] private GameObject visualWhenOnGround;
     [SerializeField] private GameObject visualWhenAttached;
+    [SerializeField] private float damageWhenBroken = 10;
+    private bool onGround = false;
+    private bool broken;
 
     public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
     {
@@ -27,7 +32,19 @@ public class Module : MonoBehaviour
         {
             renderer.sortingOrder = spriteOrderInLayer;
         }
-        onAttachChange.Invoke();
+        InvokeAttachEvent();
+    }
+
+    private void InvokeAttachEvent()
+    {
+        if(onGround)
+        {
+            onUnattached.Invoke();
+        }
+        else
+        {
+            onAttached.Invoke();
+        }
     }
 
     void OnClicked()
@@ -45,15 +62,37 @@ public class Module : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        broken = false;
         GameObject clickRegistrar = UiManager.GetInstance().AddTracking(clickRegistrarPrefab, gameObject);
         clickRegistrar.GetComponent<Button>().onClick.AddListener(OnClicked);
+        MaintenanceTimer maintenance = GetComponent<MaintenanceTimer>();
+        if(maintenance)
+        {
+            maintenance.onExpired.AddListener(() => SetBroken(true));
+            maintenance.onRestored.AddListener(() => SetBroken(false));
+        }
+    }
+    
+    void Start()
+    {
+        InvokeAttachEvent();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetBroken(bool broken)
     {
+        if(broken == this.broken) return;
+        this.broken = broken;
+        if(broken)
+        {
+            GetComponentInParent<Combatant>().DealDamage(damageWhenBroken, "Broken Module");
+        }
+        Animator[] animators = visualWhenAttached.GetComponentsInChildren<Animator>();
+        foreach(Animator anim in animators)
+        {
+            anim.enabled = !broken;
+        }
     }
 
     public bool IsAttached()
