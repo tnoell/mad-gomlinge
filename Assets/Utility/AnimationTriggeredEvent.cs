@@ -8,4 +8,9 @@ public class AnimationTriggeredEvent : MonoBehaviour
     {
         events.Invoke();
     }
+
+    public void Destroy(GameObject obj)
+    {
+        GameObject.Destroy(obj);
+    }
 }

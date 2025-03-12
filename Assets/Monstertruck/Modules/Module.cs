@@ -14,6 +14,7 @@ public class Module : MonoBehaviour
     [SerializeField] private GameObject visualWhenOnGround;
     [SerializeField] private GameObject visualWhenAttached;
     [SerializeField] private float damageWhenBroken = 10;
+    [SerializeField] private GameObject explosionPrefab;
     private bool onGround = false;
     private bool broken;
 
@@ -74,7 +75,7 @@ public class Module : MonoBehaviour
             maintenance.onRestored.AddListener(() => SetBroken(false));
         }
     }
-    
+
     void Start()
     {
         InvokeAttachEvent();
@@ -98,5 +99,12 @@ public class Module : MonoBehaviour
     public bool IsAttached()
     {
         return !onGround;
+    }
+
+    [ContextMenu("Explode")]
+    public void Explode(bool destroy)
+    {
+        GameObject.Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform.parent);
+        if(destroy) GameObject.Destroy(gameObject, 0.1f);
     }
 }
