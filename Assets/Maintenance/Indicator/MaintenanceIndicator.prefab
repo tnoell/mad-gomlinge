@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905260004653850032}
   - component: {fileID: 8999038054389272076}
-  - component: {fileID: 9208205067531347914}
+  - component: {fileID: 5375266279800990570}
   m_Layer: 0
   m_Name: MaintenanceIndicator
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 677230955
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -425308900, guid: 24c1818121051514dafbf17612e6e8f7, type: 3}
   m_Color: {r: 1, g: 0.92781216, b: 0.2028302, a: 0.64705884}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &9208205067531347914
+--- !u!95 &5375266279800990570
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 7333677882156584920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b322e987c814004d924605bfa62b94a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
