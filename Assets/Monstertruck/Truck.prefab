@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1778726503295295735}
   - component: {fileID: 2713407461840479856}
   - component: {fileID: 210289262624735690}
+  - component: {fileID: 6045940965663374029}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Player
@@ -83,6 +84,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Player
+  onDeathUnity:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 300
 --- !u!114 &210289262624735690
 MonoBehaviour:
@@ -98,6 +102,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 0.8
   speedPerEnginePower: 0.2
+--- !u!114 &6045940965663374029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369848468738793009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fa9338f33f31a46844a96fa829c40a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenShake:
+    directionMin: {x: -0.012, y: -0.012}
+    directionMax: {x: 0.012, y: 0.012}
+    singleCycleDuration: 0.15
+    duration: 1
+  listenForDamage: {fileID: 2713407461840479856}
+  multiplierPerDamage:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.041358795
+      outSlope: 0.041358795
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04501078
+    - serializedVersion: 3
+      time: 38.3675
+      value: 12.693568
+      inSlope: 0.42311203
+      outSlope: 0.42311203
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 30
+      inSlope: -0.016178282
+      outSlope: -0.016178282
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2324211
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2792872098668320096
 PrefabInstance:
   m_ObjectHideFlags: 0
