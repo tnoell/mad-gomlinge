@@ -65,7 +65,7 @@ MonoBehaviour:
   visualWhenOnGround: {fileID: 1796925953230744106}
   visualWhenAttached: {fileID: 6793494925505825443}
   damageWhenBroken: 50
-  explosionPrefab: {fileID: 5907727736880586646, guid: d41380357c1dbcc4fabeabdac36213e4, type: 3}
+  explosionPrefab: {fileID: 5907727736880586646, guid: 2165d8aa5f72aea49ae46a775bcb8d07, type: 3}
 --- !u!114 &6194618591607940752
 MonoBehaviour:
   m_ObjectHideFlags: 0

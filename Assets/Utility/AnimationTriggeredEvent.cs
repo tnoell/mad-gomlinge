@@ -13,4 +13,9 @@ public class AnimationTriggeredEvent : MonoBehaviour
     {
         GameObject.Destroy(obj);
     }
+
+    public void DestroyThis(float delay)
+    {
+        GameObject.Destroy(gameObject, delay);
+    }
 }
