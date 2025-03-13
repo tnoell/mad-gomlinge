@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawnSequence : MonoBehaviour
 {
-    [SerializeField] private AttackLauncher attack;
+    [SerializeField] private AttackLauncher[] attacks;
     [SerializeField] private float movementDuration;
     [SerializeField] private AnimationCurve positionByProgress;
     [SerializeField] private float registerAtPositionT;
@@ -17,7 +17,7 @@ public class EnemySpawnSequence : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        attack.enabled = false;
+        EnableAttacks(false);
         registered = false;
     }
 
@@ -40,11 +40,21 @@ public class EnemySpawnSequence : MonoBehaviour
         self.SetTarget(player);
     }
 
+    private void EnableAttacks(bool enable)
+    {
+        foreach(AttackLauncher attack in attacks)
+        {
+            attack.enabled = enable;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(!playerStats) return;
+        float playerSpeed = Mathf.Max(playerStats.GetSpeed(), playerBaseSpeed);
         movementProgress += Time.deltaTime
-            / movementDuration / (playerStats.GetSpeed() + playerBaseSpeed);
+            / movementDuration / playerSpeed;
         if(movementProgress < 1)
         {
             float posT = positionByProgress.Evaluate(movementProgress);
@@ -56,7 +66,7 @@ public class EnemySpawnSequence : MonoBehaviour
             Register(); // just to make sure
             transform.position = targetPos;
             // TODO: run animation here, which triggers attack.enabled instead
-            attack.enabled = true;
+            EnableAttacks(true);
             this.enabled = false;
         }
     }
