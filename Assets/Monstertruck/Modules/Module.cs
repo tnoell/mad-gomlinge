@@ -53,7 +53,7 @@ public class Module : MonoBehaviour
         if(onGround)
         {
             ModuleHolder moduleHolder = GameObject.FindWithTag("GameManager").GetComponent<ModuleHolder>();
-            moduleHolder.PushModule(this);
+            moduleHolder.GroundModuleClicked(this);
         }
         else
         {

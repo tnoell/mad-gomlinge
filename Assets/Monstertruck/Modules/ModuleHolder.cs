@@ -34,9 +34,17 @@ public class ModuleHolder : MonoBehaviour
         return module;
     }
 
-    public void PushModule(Module module)
+    public void GroundModuleClicked(Module module)
     {
-        currentModule = module;
+        if(currentModule) // click again to let go; should always be considered a 
+        // click on the module that is being held, so parameter doesn't matter
+        {
+            currentModule = null;
+        }
+        else
+        {
+            currentModule = module;
+        }
         UpdateAttachmentPointVisibility();
     }
 }
