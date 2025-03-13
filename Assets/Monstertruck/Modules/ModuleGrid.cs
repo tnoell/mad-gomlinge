@@ -10,12 +10,15 @@ public class ModuleGrid : MonoBehaviour
     [SerializeField] private Vector2Int size;
     [SerializeField] private Vector2Int startModulePos;
     [SerializeField] private Module startModule;
+    [SerializeField] private GameObject wheelPrefab;
+    [SerializeField] private Vector2 wheelOffset;
+
     private class ModuleSlot
     {
         private Module _module = null;
         public Module module
         {
-            //get { return _module; }
+            get { return _module; }
             set { 
                 if(IsOccupied())
                 { throw new Exception("slot already occupied"); }
@@ -25,12 +28,27 @@ public class ModuleGrid : MonoBehaviour
         private AttachmentPoint _attachmentPoint = null;
         public AttachmentPoint attachmentPoint
         {
-            //get { return _attachmentPoint; }
+            get { return _attachmentPoint; }
             set { 
                 if(IsOccupied())
                 { throw new Exception("slot already occupied"); }
                 _attachmentPoint = value;
              }
+        }
+        private GameObject _wheel = null;
+        public GameObject wheel
+        {
+            get { return _wheel; }
+            set { 
+                if(!CanAddWheel())
+                { throw new Exception("slot already occupied"); }
+                _wheel = value;
+             }
+        }
+
+        public bool CanAddWheel()
+        {
+            return _module == null && _wheel == null; // not blocked by attachmentPoint
         }
 
         public bool IsOccupied()
@@ -43,6 +61,8 @@ public class ModuleGrid : MonoBehaviour
             _module = null;
             if(_attachmentPoint != null) GameObject.Destroy(_attachmentPoint.gameObject);
             _attachmentPoint = null;
+            if(_wheel != null) GameObject.Destroy(wheel);
+            wheel = null;
         }
     }
     private List<ModuleSlot> moduleSlots;
@@ -103,6 +123,7 @@ public class ModuleGrid : MonoBehaviour
         int? iModuleNullable = Index(pos);
         if(!iModuleNullable.HasValue) return;
         int iModule = iModuleNullable.Value;
+        CheckAddWheel(iModule);
         if (moduleSlots[iModule].IsOccupied()) return;
         Vector3 pos3 = new Vector3(pos.x, pos.y, 0);
         AttachmentPoint ap = Ui.UiManager.GetInstance().AddAttachmentPoint(gameObject, pos3);
@@ -111,6 +132,42 @@ public class ModuleGrid : MonoBehaviour
         {
             PlaceCurrentModule(pos);
         });
+    }
+
+    private void CheckAddWheel(int iModule)
+    {
+        if(!moduleSlots[iModule].CanAddWheel()) return;
+        Vector2Int pos = Pos(iModule).Value;
+        CheckAddSideWheel(pos, Vector2Int.left);
+        CheckAddSideWheel(pos, Vector2Int.right);
+    }
+
+    private bool CheckAddSideWheel(Vector2Int emptyPos, Vector2Int neighborDir)
+    {
+        Vector2Int neighborPos = emptyPos + neighborDir;
+        if(!CanHaveWheel(neighborPos)) return false;
+        GameObject wheelInstance = GameObject.Instantiate(wheelPrefab, transform);
+        Vector2 sideWheelPos = wheelOffset;
+        if(sideWheelPos.x > 0 != neighborDir.x > 0)
+        {
+            sideWheelPos.x *= -1;
+        }
+        sideWheelPos += emptyPos;
+        wheelInstance.transform.localPosition = sideWheelPos;
+        return true;
+    }
+
+    private bool CanHaveWheel(Vector2Int pos)
+    {
+        if(pos.x == startModulePos.x)
+        {
+            int yDist = pos.y - startModulePos.y;
+            if(yDist == 0 || yDist == 1) return false;
+        }
+        int? iModuleNullable = Index(pos);
+        if(!iModuleNullable.HasValue) return false;
+        int iModule = iModuleNullable.Value;
+        return moduleSlots[iModule].module != null;
     }
 
     // void UpdateAttachmentPoints()
