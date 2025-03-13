@@ -34,7 +34,7 @@ public class MaintenanceTimer : MonoBehaviour
 
     public void Restart()
     {
-        DoMaintenance();
+        CompleteMaintenance();
         running = true;
     }
 
@@ -60,7 +60,7 @@ public class MaintenanceTimer : MonoBehaviour
         progress = Mathf.Clamp(progress, 0, 1);
     }
 
-    public void DoMaintenance()
+    public void CompleteMaintenance()
     {
         if(isBroken)
         {

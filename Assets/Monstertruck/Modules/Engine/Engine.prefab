@@ -326,6 +326,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6aa033bd952a44b989eed1bffce322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1399988205725177730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3636229022735534528, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+  m_PrefabInstance: {fileID: 2385705885400981058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455524606365987030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dbd90238c21364db7c60433312b679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3455524606365987030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -357,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013924c1d7c951a4983a3d296c3291ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitForMaintenanceThreshold: {fileID: 1399988205725177730}
   minigamePrefab: {fileID: 6534949643177711491, guid: 92ebd6377374e344c9ed4f1f603ad29f, type: 3}
 --- !u!1 &9177471244483941601 stripped
 GameObject:
