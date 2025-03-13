@@ -33,7 +33,14 @@ namespace Combat
                 GameObject.Destroy(gameObject);
                 return;
             }
-            transform.position = Vector2.Lerp(startPoint, target.transform.position, progress);
+            Vector2 lastPos = transform.position;
+            Vector2 newPos = Vector2.Lerp(startPoint, target.transform.position, progress);
+            transform.position = newPos;
+            Vector2 change = newPos - lastPos;
+            if(change.magnitude > 0.00001f)
+            {
+                transform.right = newPos - lastPos;
+            }
         }
     }
 }
