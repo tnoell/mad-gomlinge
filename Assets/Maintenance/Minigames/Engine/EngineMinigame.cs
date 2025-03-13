@@ -7,12 +7,18 @@ public class EngineMinigame : Minigame
     [SerializeField] private Collider2D dropletPrefab;
     [SerializeField] private int dropletsNeeded = 50;
     [SerializeField] private float dropletInterval = 0.1f;
+    [SerializeField] private AnimationCurve tankSpeed;
+    [SerializeField] private float timeUntilFinalTankSpeed = 6;
 
+    private float timePassed;
+    private Animator tankAnimator;
     private int dropletsCollected;
     private float nextDropletTime;
 
     void Awake()
     {
+        tankAnimator = GetComponent<Animator>();
+        timePassed = 0;
         dropletsCollected = 0;
         nextDropletTime = Time.fixedTime + dropletInterval;
     }
@@ -23,6 +29,10 @@ public class EngineMinigame : Minigame
         {
             Complete();
         }
+
+        timePassed += Time.fixedDeltaTime;
+        float timePassedRelative = Mathf.Min(1, timePassed / timeUntilFinalTankSpeed);
+        tankAnimator.speed = tankSpeed.Evaluate(timePassedRelative);
 
         while(Time.fixedTime >= nextDropletTime)
         {
