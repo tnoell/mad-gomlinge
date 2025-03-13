@@ -128,7 +128,7 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3842710565024021087}
         m_TargetAssemblyTypeName: Combat.AttackLauncher, Assembly-CSharp
         m_MethodName: FireGun
         m_Mode: 1
