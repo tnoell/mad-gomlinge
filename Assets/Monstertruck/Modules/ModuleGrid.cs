@@ -61,8 +61,8 @@ public class ModuleGrid : MonoBehaviour
             _module = null;
             if(_attachmentPoint != null) GameObject.Destroy(_attachmentPoint.gameObject);
             _attachmentPoint = null;
-            if(_wheel != null) GameObject.Destroy(wheel);
-            wheel = null;
+            if(_wheel != null) GameObject.Destroy(_wheel);
+            _wheel = null;
         }
     }
     private List<ModuleSlot> moduleSlots;
@@ -154,6 +154,7 @@ public class ModuleGrid : MonoBehaviour
         }
         sideWheelPos += emptyPos;
         wheelInstance.transform.localPosition = sideWheelPos;
+        moduleSlots[Index(emptyPos).Value].wheel = wheelInstance;
         return true;
     }
 
