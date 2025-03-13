@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Machinegun_Idle
+  m_Name: MG_shooting
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1901176853, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
+      value: {fileID: -463343005431644938, guid: dcf48b0acf2c7ac4297516ff7c076986, type: 3}
     - time: 0.125
-      value: {fileID: 1830686760, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
+      value: {fileID: 7263843224431105221, guid: dcf48b0acf2c7ac4297516ff7c076986, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1901176853, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
-    - {fileID: 1830686760, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
+    - {fileID: -463343005431644938, guid: dcf48b0acf2c7ac4297516ff7c076986, type: 3}
+    - {fileID: 7263843224431105221, guid: dcf48b0acf2c7ac4297516ff7c076986, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -72,4 +72,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.125
+    functionName: Trigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

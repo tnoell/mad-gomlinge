@@ -283,6 +283,14 @@ PrefabInstance:
       propertyPath: onRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Volume
+      value: 0.564
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6793494925505825443, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -290,18 +298,18 @@ PrefabInstance:
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+      objectReference: {fileID: 21300000, guid: 5e7b7f0ed61fca14b805263dbeac381b, type: 3}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.b
-      value: 0.8584906
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.g
-      value: 0.25511748
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.r
-      value: 0.5201362
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7795030263985634902, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.a
@@ -436,7 +444,7 @@ Animator:
   m_GameObject: {fileID: 7939644581880856143}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7b7b28f14594ae4cb4ff15ce2dbbb9e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7065967bd8aed2549b59f289c0394496, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
