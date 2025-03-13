@@ -3,16 +3,19 @@ using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private float initialDelay;
     [SerializeField] private Combat.Combatant[] enemyPrefabSequence;
     [SerializeField] private UnityEvent onFinish;
 
     private Combat.Combatant currentEnemyInstance;
     private int iNextEnemy;
+    private float initialDelayLeft;
 
     void Awake()
     {
         currentEnemyInstance = null;
         iNextEnemy = 0;
+        initialDelayLeft = initialDelay;
     }
 
     private bool SpawnNextEnemy()
@@ -40,6 +43,11 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(initialDelayLeft > 0)
+        {
+            initialDelayLeft -= Time.deltaTime;
+            return;
+        }
         if(!currentEnemyInstance)
         {
             if(!SpawnNextEnemy()) return;

@@ -119,10 +119,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc10e4a25eb22f4f9105574ddd3395d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialDelay: 15
   enemyPrefabSequence:
   - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
-  - {fileID: 1342432480219116061, guid: 54747589f9b4e1b42bf28f112af67718, type: 3}
-  - {fileID: 1342432480219116061, guid: 5efbd400a0cb7da45847ef2cee1b0e74, type: 3}
+  - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
+  - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
+  - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
+  - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
+  - {fileID: 232650308335813307, guid: 6d6aa87c72d3dbe4c8864bc6aa14bae8, type: 3}
+  - {fileID: 7249007314526046217, guid: b0b22833ff991e74faefa5b286a36f54, type: 3}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
