@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7137670033482247665, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
+      propertyPath: m_Volume
+      value: 0.544
+      objectReference: {fileID: 0}
     - target: {fileID: 8303510918683172172, guid: e9d4decc80a0d9c43b8f461ad2e5426f, type: 3}
       propertyPath: name
       value: Weak Kobold

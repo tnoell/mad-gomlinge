@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Volume
-      value: 0.564
+      value: 0.302
       objectReference: {fileID: 0}
     - target: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: DopplerLevel
@@ -411,6 +411,9 @@ MonoBehaviour:
   attackOrigin: {fileID: 7043399509377805061}
   startCharged: 1
   shotAnimator: {fileID: 4504332763172910383}
+  onLaunched:
+    m_PersistentCalls:
+      m_Calls: []
   nAttacks: 1
 --- !u!114 &3747036478373702583
 MonoBehaviour:
