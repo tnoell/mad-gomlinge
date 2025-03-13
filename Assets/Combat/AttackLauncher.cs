@@ -12,6 +12,7 @@ public class AttackLauncher : MonoBehaviour
     [SerializeField] private Transform attackOrigin;
     [SerializeField] private bool startCharged = false;
     [SerializeField] private Animator shotAnimator;
+    [SerializeField] private UnityEvent onLaunched;
     private float timePassed;
     private Combatant combatant;
     Combatant target;
@@ -60,6 +61,7 @@ public class AttackLauncher : MonoBehaviour
         if (attackOrigin) position = attackOrigin.position;
         AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
         attackInstance.Launch(combatant, target);
+        onLaunched.Invoke();
         if (shotAnimator) 
         {
             nAttacksLeft--;
