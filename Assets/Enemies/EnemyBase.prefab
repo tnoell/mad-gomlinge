@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554cf587fb4c05c4e8c82aaa066bcf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
+  attackPrefab: {fileID: 6533765991039156803, guid: 7acb51c9fc0a6d74887a6cbcdfc3f9ec, type: 3}
   interval: 1
   attackOrigin: {fileID: 0}
   startCharged: 1
