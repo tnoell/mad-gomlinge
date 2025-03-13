@@ -416,6 +416,11 @@ MonoBehaviour:
   - {fileID: 283487973738023940}
   - {fileID: 4504332763172910383}
   fullCooldownSeconds: 10
+--- !u!82 &7206910505388277166 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+  m_PrefabInstance: {fileID: 3488072040482436332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7939644581880856143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6793494925505825443, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -465,6 +470,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7206910505388277166}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ae9a7c7cf1590b74aa3b819639616d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEngine.GraphicsBuffer;
 
 
@@ -55,7 +56,6 @@ public class AttackLauncher : MonoBehaviour
 
     public void FireGun()
     {
-        
         Vector3 position = transform.position;
         if (attackOrigin) position = attackOrigin.position;
         AttackMovement attackInstance = GameObject.Instantiate(attackPrefab, position, Quaternion.identity);
