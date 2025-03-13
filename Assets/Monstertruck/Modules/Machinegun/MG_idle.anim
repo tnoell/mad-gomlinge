@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Machinegun_Idle
+  m_Name: MG_idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1901176853, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
+      value: {fileID: 565779465723412023, guid: 6c5a9af245fe5374da9919276dd12165, type: 3}
     - time: 0.125
-      value: {fileID: 1830686760, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
+      value: {fileID: 8860851446079304613, guid: 6c5a9af245fe5374da9919276dd12165, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1901176853, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
-    - {fileID: 1830686760, guid: dfee26ac1231c3440a35b8eecacce117, type: 3}
+    - {fileID: 565779465723412023, guid: 6c5a9af245fe5374da9919276dd12165, type: 3}
+    - {fileID: 8860851446079304613, guid: 6c5a9af245fe5374da9919276dd12165, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
