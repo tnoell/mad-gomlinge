@@ -50,6 +50,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
+  onDeathUnity:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7137670033482247665}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: b2cd06e0499e7b947b616ea77876af41, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHealth: 100
 --- !u!114 &4846939893023237502
 MonoBehaviour:

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 namespace Combat
 {
@@ -9,6 +10,7 @@ namespace Combat
     {
         public delegate bool OnDeath(string killedBy);  // return true if cleanup was handled; if none returns true, object gets destroyed
         public OnDeath onDeath;
+        public UnityEvent onDeathUnity;
 
         public delegate void OnHealthChanged(float change);
         public OnHealthChanged onHealthChanged;
@@ -33,6 +35,10 @@ namespace Combat
         {
             currentHealth = maxHealth;
             currentTarget = null;
+            onDeath = (string killedBy) => {
+                onDeathUnity.Invoke();
+                return false;
+            };
         }
 
         public void SetTarget(Combatant target)
