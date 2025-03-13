@@ -9,15 +9,14 @@ public class EngineMinigame : Minigame
     [SerializeField] private float dropletInterval = 0.1f;
     [SerializeField] private AnimationCurve tankSpeed;
     [SerializeField] private float timeUntilFinalTankSpeed = 6;
+    [SerializeField] private Animator tankAnimator;
 
     private float timePassed;
-    private Animator tankAnimator;
     private int dropletsCollected;
     private float nextDropletTime;
 
     void Awake()
     {
-        tankAnimator = GetComponent<Animator>();
         timePassed = 0;
         dropletsCollected = 0;
         nextDropletTime = Time.fixedTime + dropletInterval;
