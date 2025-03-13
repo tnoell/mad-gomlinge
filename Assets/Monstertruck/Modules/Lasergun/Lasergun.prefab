@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
-  interval: 0.5
+  interval: 0.4
   attackOrigin: {fileID: 7043399509377805061}
   startCharged: 1
   shotAnimator: {fileID: 4504332763172910383}
@@ -420,6 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e102a20d514f1da4a83d28d6d8ba037f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitForMaintenanceThreshold: {fileID: 0}
   activatableComponents:
   - {fileID: 283487973738023940}
   - {fileID: 4504332763172910383}

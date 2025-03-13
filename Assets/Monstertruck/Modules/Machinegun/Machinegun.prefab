@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554cf587fb4c05c4e8c82aaa066bcf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
+  attackPrefab: {fileID: 6850509289827330912, guid: f0b74b6a41cb7114d9bb0ebbf3fb10a1, type: 3}
   interval: 5
   attackOrigin: {fileID: 7043399509377805061}
   startCharged: 1

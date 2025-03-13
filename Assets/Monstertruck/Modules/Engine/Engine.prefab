@@ -164,13 +164,9 @@ PrefabInstance:
       propertyPath: onUnattached.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 3636229022735534528, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
-      propertyPath: threshold
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: duration
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: onExpired.m_PersistentCalls.m_Calls.Array.size
