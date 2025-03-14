@@ -7,6 +7,7 @@ TagManager:
   - UiManager
   - GameManager
   - EnvironmentRoot
+  - TutorialStartEngine
   layers:
   - Default
   - TransparentFX

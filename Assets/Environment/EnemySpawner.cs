@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float initialDelay;
     [SerializeField] private Combat.Combatant[] enemyPrefabSequence;
     [SerializeField] private UnityEvent onFinish;
+    [SerializeField] private bool spawnAutomatically = true;
 
     private Combat.Combatant currentEnemyInstance;
     private int iNextEnemy;
@@ -22,9 +23,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(iNextEnemy < enemyPrefabSequence.Length)
         {
-            GameObject instance = Environment.GetInstance()
-                    .Spawn(enemyPrefabSequence[iNextEnemy].gameObject, SpawnMode.enemy);
-            currentEnemyInstance = instance.GetComponent<Combat.Combatant>();
+            SpawnEnemy(enemyPrefabSequence[iNextEnemy].gameObject);
             iNextEnemy++;
             return true;
         }
@@ -40,9 +39,23 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public GameObject SpawnEnemy(GameObject enemy)
+    {
+        GameObject instance = Environment.GetInstance()
+                .Spawn(enemy, SpawnMode.enemy);
+        currentEnemyInstance = instance.GetComponent<Combat.Combatant>();
+        return instance;
+    }
+
+    public void SpawnEnemyVoid(GameObject enemy)
+    {
+        SpawnEnemy(enemy);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(!spawnAutomatically) return;
         if(initialDelayLeft > 0)
         {
             initialDelayLeft -= Time.deltaTime;
