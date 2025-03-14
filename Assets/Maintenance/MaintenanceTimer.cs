@@ -12,6 +12,7 @@ public class MaintenanceTimer : MonoBehaviour
     private bool isBroken;
     public bool IsBroken() { return isBroken; }
     private bool running;
+    public bool IsRunning() { return running; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
