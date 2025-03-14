@@ -1,15 +1,16 @@
+using System;
 using UnityEngine;
 
 public class OverheatMaintenance : MaintenanceTask
 {
     [SerializeField] private Behaviour[] activatableComponents;
     [SerializeField] private float fullCooldownSeconds = 10;
-    private bool moduleActivated;
+    [SerializeField] private AnimatorSharedVariable<bool> moduleActivated;
     
     protected override void Awake()
     {
         base.Awake();
-        moduleActivated = true;
+        moduleActivated.Val = true;
         maintenanceTimer.onExpired.AddListener(() => ActivateModule(false));
     }
 
@@ -20,22 +21,22 @@ public class OverheatMaintenance : MaintenanceTask
             if(maintenanceTimer.GetProgress() > 0) return;
             Complete();
         }
-        ActivateModule(!moduleActivated);
+        ActivateModule(!moduleActivated.Val);
     }
 
     private void ActivateModule(bool activate)
     {
-        moduleActivated = activate;
+        moduleActivated.Val = activate;
         maintenanceTimer.Pause(!activate);
         foreach(Behaviour component in activatableComponents)
         {
-            component.enabled = moduleActivated;
+            component.enabled = moduleActivated.Val;
         }
     }
 
     protected override void FixedUpdate()
     {
-        if(!moduleActivated)
+        if(!moduleActivated.Val)
         {
             maintenanceTimer.ChangeProgress(-Time.fixedDeltaTime / fullCooldownSeconds);
         }
