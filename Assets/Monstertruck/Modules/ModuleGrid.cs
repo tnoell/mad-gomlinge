@@ -183,7 +183,7 @@ public class ModuleGrid : MonoBehaviour
         Vector3 pos3 = new Vector3(pos.x, pos.y, 0);
         AttachmentPoint ap = Ui.UiManager.GetInstance().AddAttachmentPoint(gameObject, pos3);
         moduleSlots[iModule].attachmentPoint = ap;
-        ap.GetComponent<Button>().onClick.AddListener(() => 
+        ap.GetComponent<DragReceiver>().onReceive.AddListener(() => 
         {
             PlaceCurrentModule(pos);
         });

@@ -61,6 +61,16 @@ public class Module : MonoBehaviour
         }
     }
 
+    public void EnableAttachmentPoints(bool enable)
+    {
+        UiManager.GetInstance().EnableAttachmentPoints(enable);
+    }
+
+    public void RegisterHeld(bool register)
+    {
+        ModuleHolder moduleHolder = GameObject.FindWithTag("GameManager").GetComponent<ModuleHolder>();
+        moduleHolder.RegisterModule(this, register);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
