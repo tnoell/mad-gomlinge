@@ -208,6 +208,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: duration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: onExpired.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -418,6 +422,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013924c1d7c951a4983a3d296c3291ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   waitForMaintenanceThreshold: {fileID: 152669447024508204}
   minigamePrefab: {fileID: 2157105679652061277, guid: 53243bead0cca2d45b63d08d6b351234, type: 3}
 --- !u!82 &7206910505388277166 stripped

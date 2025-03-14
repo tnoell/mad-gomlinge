@@ -436,6 +436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e102a20d514f1da4a83d28d6d8ba037f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   waitForMaintenanceThreshold: {fileID: 0}
   activatableComponents:
   - {fileID: 283487973738023940}

@@ -166,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: duration
-      value: 45
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: onExpired.m_PersistentCalls.m_Calls.Array.size
@@ -364,6 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013924c1d7c951a4983a3d296c3291ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   waitForMaintenanceThreshold: {fileID: 1399988205725177730}
   minigamePrefab: {fileID: 6534949643177711491, guid: 92ebd6377374e344c9ed4f1f603ad29f, type: 3}
 --- !u!1 &9177471244483941601 stripped
