@@ -677,11 +677,11 @@ PrefabInstance:
     - target: {fileID: 2936457853959404233, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 1ea55240987f08340b41c87ce3cbdca0, type: 3}
+      objectReference: {fileID: 8300000, guid: 65d2c25c9c1e089419e1f448777aff2d, type: 3}
     - target: {fileID: 2936457853959404233, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1ea55240987f08340b41c87ce3cbdca0, type: 3}
+      objectReference: {fileID: 8300000, guid: 65d2c25c9c1e089419e1f448777aff2d, type: 3}
     - target: {fileID: 6843967845817385719, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_Name
       value: Main Camera
