@@ -11,7 +11,7 @@ public class GameStateManager : MonoBehaviour
         gameOver
     }
 
-    void Awake()
+    void Start()
     {
         Combat.Combatant player = GameObject.FindWithTag("Player").GetComponent<Combat.Combatant>();
         player.onDeath += (string killedBy) =>
