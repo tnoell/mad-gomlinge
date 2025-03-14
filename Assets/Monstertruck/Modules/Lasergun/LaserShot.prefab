@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserShot
       objectReference: {fileID: 0}
+    - target: {fileID: 6861387130540236505, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7429887643721774622, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
       propertyPath: m_Color.b
       value: 1

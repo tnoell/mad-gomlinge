@@ -352,9 +352,6 @@ PrefabInstance:
       addedObject: {fileID: 4504332763172910383}
     - targetCorrespondingSourceObject: {fileID: 6793494925505825443, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5450778453999197189}
-    - targetCorrespondingSourceObject: {fileID: 6793494925505825443, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2630563651226822964}
   m_SourcePrefab: {fileID: 100100000, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
 --- !u!114 &1094969570429739017 stripped
@@ -406,14 +403,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554cf587fb4c05c4e8c82aaa066bcf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPrefab: {fileID: 5627598117263169584, guid: 7764cf85531cd9d4f8e355e63b95effc, type: 3}
+  attackPrefab: {fileID: 536449055157443900, guid: 1f0c6d5190342e043add7f32631877c4, type: 3}
   interval: 0.4
   attackOrigin: {fileID: 7043399509377805061}
   startCharged: 1
-  shotAnimator: {fileID: 4504332763172910383}
+  shotAnimator: {fileID: 0}
   onLaunched:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7206910505388277166}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ae9a7c7cf1590b74aa3b819639616d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   nAttacks: 1
 --- !u!114 &3747036478373702583
 MonoBehaviour:
@@ -466,45 +475,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5450778453999197189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939644581880856143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a169eaefb2325df49a91e895fbe59404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 283487973738023940}
-        m_TargetAssemblyTypeName: Combat.AttackLauncher, Assembly-CSharp
-        m_MethodName: FireGun
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7206910505388277166}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ae9a7c7cf1590b74aa3b819639616d36, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2630563651226822964
 MonoBehaviour:
   m_ObjectHideFlags: 0
