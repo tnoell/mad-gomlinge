@@ -3,12 +3,14 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject victoryScreen;
 
     public enum State
     {
         running,
         paused,
-        gameOver
+        gameOver,
+        victory
     }
 
     void Start()
@@ -33,6 +35,11 @@ public class GameStateManager : MonoBehaviour
             // break;
             case State.gameOver:
             gameOverScreen.SetActive(true);
+            break;
+            // break;
+            case State.victory:
+            victoryScreen.SetActive(true);
+            GameObject.FindWithTag("Player").SetActive(false);
             break;
             default:
             throw new System.Exception("Not implemented");

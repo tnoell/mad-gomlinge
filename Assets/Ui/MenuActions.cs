@@ -14,4 +14,14 @@ public class MenuActions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ChangeState(GameStateManager.State state)
+    {
+        GameObject.FindWithTag("GameManager").GetComponent<GameStateManager>().ChangeState(state);
+    }
+
+    public void ChangeStateToVictory()
+    {
+        ChangeState(GameStateManager.State.victory);
+    }
 }
