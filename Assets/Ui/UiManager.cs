@@ -80,7 +80,7 @@ namespace Ui
         {
             if(currentMinigame) return null;
             currentMinigame = GameObject.Instantiate(prefab,
-                    Vector3.zero, Quaternion.identity, minigameHolder);
+                    minigameHolder.transform.position, Quaternion.identity, minigameHolder);
             return currentMinigame;
         }
     }
