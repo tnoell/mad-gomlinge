@@ -93,7 +93,11 @@ public class Environment : MonoBehaviour
         default:
             throw new Exception("SpawnMode not implemented: " + spawnMode);
         }
-        
+    }
+
+    public void MakeScrolling(Transform transform)
+    {
+        transform.parent = scrollingTransform;
     }
 
     public Vector2 GetEnemyTargetPos()
