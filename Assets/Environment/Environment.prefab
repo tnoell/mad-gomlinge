@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 509154816937853831}
   - component: {fileID: 2255888300666039726}
   - component: {fileID: 5337969918009183711}
+  - component: {fileID: 8418735175302638658}
   m_Layer: 0
   m_Name: Environment
   m_TagString: EnvironmentRoot
@@ -102,11 +103,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7325ccd67823d9e41958f092189584c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAutomatically: 1
   modulePrefabs:
   - {fileID: 1834592447520924678, guid: fbd557ccfd2f27d4cb162b9c7f75e315, type: 3}
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}
   - {fileID: 1834592447520924678, guid: 70628d7ca2137384da2d03703f788b32, type: 3}
-  spawnDistanceInterval: 5
+  spawnDistanceInterval: 7.5
 --- !u!114 &5337969918009183711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialDelay: 10
   enemyPrefabSequence:
+  - {fileID: 1167236635190974952, guid: c8d299be080473942bceefbbd61789b0, type: 3}
+  - {fileID: 1167236635190974952, guid: c8d299be080473942bceefbbd61789b0, type: 3}
   - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
   - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
   - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
@@ -131,6 +135,19 @@ MonoBehaviour:
   onFinish:
     m_PersistentCalls:
       m_Calls: []
+  spawnAutomatically: 1
+--- !u!114 &8418735175302638658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797094108464756854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a9c7a8aa810684ab6a5194f76616ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3143913716898942552
 PrefabInstance:
   m_ObjectHideFlags: 0

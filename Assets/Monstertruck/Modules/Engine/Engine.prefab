@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 995216cd5e510a54eaa9ae6868414c1c, type: 3}
+    - target: {fileID: 2244531750327106022, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: onAttached.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -166,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: duration
-      value: 45
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: onExpired.m_PersistentCalls.m_Calls.Array.size
@@ -280,6 +284,14 @@ PrefabInstance:
       propertyPath: onRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4667781780366771069, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5bc8f225ca69ed14f8a43db28f91e88c, type: 3}
+    - target: {fileID: 6299729291312945337, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -364,6 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013924c1d7c951a4983a3d296c3291ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   waitForMaintenanceThreshold: {fileID: 1399988205725177730}
   minigamePrefab: {fileID: 6534949643177711491, guid: 92ebd6377374e344c9ed4f1f603ad29f, type: 3}
 --- !u!1 &9177471244483941601 stripped

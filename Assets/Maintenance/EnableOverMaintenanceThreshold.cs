@@ -25,7 +25,8 @@ public class EnableOverMaintenanceThreshold : MonoBehaviour
 
     void Update()
     {
-        bool newEnabled = maintenanceTimer.GetProgress() >= threshold;
+        bool newEnabled = maintenanceTimer.GetProgress() >= threshold
+                && maintenanceTimer.IsRunning() && !maintenanceTimer.IsBroken();
         if(newEnabled != lastEnabled) Enable(newEnabled);
     }
 }
