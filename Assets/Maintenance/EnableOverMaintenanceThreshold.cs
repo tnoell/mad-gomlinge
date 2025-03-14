@@ -11,6 +11,7 @@ public class EnableOverMaintenanceThreshold : MonoBehaviour
 
     void Awake()
     {
+        onChange = null;
         Enable(false);
         maintenanceTimer = GetComponent<MaintenanceTimer>();
     }

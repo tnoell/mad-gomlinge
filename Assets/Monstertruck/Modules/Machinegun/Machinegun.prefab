@@ -333,6 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4602310897641578391, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+    - {fileID: -6229174496619270659, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -342,6 +343,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 283487973738023940}
+    - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5197303926552440364}
     - targetCorrespondingSourceObject: {fileID: 6793494925505825443, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4504332763172910383}
@@ -349,6 +353,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5450778453999197189}
   m_SourcePrefab: {fileID: 100100000, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+--- !u!114 &152669447024508204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3636229022735534528, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+  m_PrefabInstance: {fileID: 3488072040482436332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505808017230387832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dbd90238c21364db7c60433312b679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1834592447520924678 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2962760620139876586, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -391,6 +406,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   nAttacks: 4
+--- !u!114 &5197303926552440364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505808017230387832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013924c1d7c951a4983a3d296c3291ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitForMaintenanceThreshold: {fileID: 152669447024508204}
+  minigamePrefab: {fileID: 2157105679652061277, guid: 53243bead0cca2d45b63d08d6b351234, type: 3}
 --- !u!82 &7206910505388277166 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}

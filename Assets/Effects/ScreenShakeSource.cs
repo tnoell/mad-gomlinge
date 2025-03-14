@@ -7,7 +7,7 @@ namespace VisualEffects
         [SerializeField] private Combat.Combatant listenForDamage;
         [SerializeField] private AnimationCurve multiplierPerDamage;
 
-        void Awake()
+        void Start()
         {
             if(listenForDamage)
             {
