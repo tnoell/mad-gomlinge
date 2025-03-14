@@ -18,7 +18,7 @@ public class Module : MonoBehaviour
     private bool onGround = false;
     private bool broken;
 
-    public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
+    public void SetOnGround(bool onGround, int spriteOrderInLayer)
     {
         this.onGround = onGround;
         GameObject[] visuals = new GameObject[]{visualWhenOnGround, visualWhenAttached};
@@ -34,6 +34,11 @@ public class Module : MonoBehaviour
             renderer.sortingOrder = spriteOrderInLayer;
         }
         InvokeAttachEvent();
+    }
+
+    public void SetOnGround(bool onGround)
+    {
+        SetOnGround(onGround, 0);
     }
 
     private void InvokeAttachEvent()
@@ -66,8 +71,6 @@ public class Module : MonoBehaviour
     void Awake()
     {
         broken = false;
-        GameObject clickRegistrar = UiManager.GetInstance().AddTracking(clickRegistrarPrefab, gameObject);
-        clickRegistrar.GetComponent<Button>().onClick.AddListener(OnClicked);
         MaintenanceTimer maintenance = GetComponent<MaintenanceTimer>();
         if(maintenance)
         {
@@ -78,7 +81,9 @@ public class Module : MonoBehaviour
 
     void Start()
     {
-        InvokeAttachEvent();
+        GameObject clickRegistrar = UiManager.GetInstance().AddTracking(clickRegistrarPrefab, gameObject);
+        clickRegistrar.GetComponent<Button>().onClick.AddListener(OnClicked);
+        // InvokeAttachEvent();
     }
 
     public void SetBroken(bool broken)
