@@ -87,7 +87,7 @@ MonoBehaviour:
   onDeathUnity:
     m_PersistentCalls:
       m_Calls: []
-  maxHealth: 300
+  maxHealth: 480
 --- !u!114 &210289262624735690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd16b53d577e1f4d8ea35123675c78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 0.8
-  speedPerEnginePower: 0.2
+  baseSpeed: 0.73
+  speedPerEnginePower: 0.27
 --- !u!114 &6045940965663374029
 MonoBehaviour:
   m_ObjectHideFlags: 0

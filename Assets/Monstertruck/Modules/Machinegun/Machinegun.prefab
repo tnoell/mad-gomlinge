@@ -414,14 +414,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPrefab: {fileID: 6850509289827330912, guid: f0b74b6a41cb7114d9bb0ebbf3fb10a1, type: 3}
-  interval: 5
+  interval: 5.5
   attackOrigin: {fileID: 7043399509377805061}
   startCharged: 1
   shotAnimator: {fileID: 4504332763172910383}
   onLaunched:
     m_PersistentCalls:
       m_Calls: []
-  nAttacks: 4
+  nAttacks: 6
 --- !u!114 &5197303926552440364
 MonoBehaviour:
   m_ObjectHideFlags: 0
