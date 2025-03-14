@@ -105,6 +105,9 @@ public class Module : MonoBehaviour
     public void Explode(bool destroy)
     {
         GameObject.Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform.parent);
-        if(destroy) GameObject.Destroy(gameObject, 0.1f);
+        if(destroy) 
+        {
+            GetComponentInParent<ModuleGrid>().DestroyModule(this);
+        }
     }
 }

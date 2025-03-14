@@ -20,6 +20,13 @@ public class ModuleGrid : MonoBehaviour
         {
             get { return _module; }
             set { 
+                if(value == null)
+                {
+                    if(_module == null) return;
+                    GameObject.Destroy(_module.gameObject);
+                    _module = null;
+                    return;
+                }
                 if(IsOccupied())
                 { throw new Exception("slot already occupied"); }
                 _module = value;
@@ -30,6 +37,13 @@ public class ModuleGrid : MonoBehaviour
         {
             get { return _attachmentPoint; }
             set { 
+                if(value == null)
+                {
+                    if(_attachmentPoint == null) return;
+                    GameObject.Destroy(_attachmentPoint.gameObject);
+                    _attachmentPoint = null;
+                    return;
+                }
                 if(IsOccupied())
                 { throw new Exception("slot already occupied"); }
                 _attachmentPoint = value;
@@ -39,7 +53,14 @@ public class ModuleGrid : MonoBehaviour
         public GameObject wheel
         {
             get { return _wheel; }
-            set { 
+            set {
+                if(value == null)
+                {
+                    if(_wheel == null) return;
+                    GameObject.Destroy(_wheel);
+                    _wheel = null;
+                    return;
+                }
                 if(!CanAddWheel())
                 { throw new Exception("slot already occupied"); }
                 _wheel = value;
@@ -48,21 +69,25 @@ public class ModuleGrid : MonoBehaviour
 
         public bool CanAddWheel()
         {
-            return _module == null && _wheel == null; // not blocked by attachmentPoint
+            return !_module && !_wheel; // not blocked by attachmentPoint
         }
 
         public bool IsOccupied()
         {
-            return _attachmentPoint != null || _module != null;
+            return _attachmentPoint || _module;
         }
+
+        public void ClearDecorations()
+        {
+            attachmentPoint = null;
+            wheel = null;
+        }
+
         public void Clear()
         {
-            if(_module != null) GameObject.Destroy(_module.gameObject);
-            _module = null;
-            if(_attachmentPoint != null) GameObject.Destroy(_attachmentPoint.gameObject);
-            _attachmentPoint = null;
-            if(_wheel != null) GameObject.Destroy(_wheel);
-            _wheel = null;
+            module = null;
+            attachmentPoint = null;
+            wheel = null;
         }
     }
     private List<ModuleSlot> moduleSlots;
@@ -108,23 +133,53 @@ public class ModuleGrid : MonoBehaviour
         moduleInstance.transform.localPosition = new Vector3(pos.x, pos.y, 0);
         moduleSlots[index].module = moduleInstance;
         moduleInstance.SetOnGround(false, moduleSlots.Count - index);
+        CheckAddAllNeighborDecorations(pos);
+        // UpdateAttachmentPoints();
+    }
 
+    public void DestroyModule(Module module)
+    {
+        int iModule;
+        for(iModule = 0; ; iModule++)
+        {
+            if(iModule == moduleSlots.Count)
+            {
+                Debug.LogError("Module " + module + " not found for deletion");
+                return;
+            }
+            if(moduleSlots[iModule].module == module) break;
+        }
+        moduleSlots[iModule].Clear();
+        Vector2Int pos = Pos(iModule).Value;
+        CheckAddDecorations(pos, true);
+        CheckAddAllNeighborDecorations(pos, true);
+    }
+
+    private void CheckAddAllNeighborDecorations(Vector2Int pos, bool refresh = false)
+    {
         foreach(Direction dir in AllDirections())
         {
             Vector2Int offset = GetVector2Int(dir);
             Vector2Int neighborPos = pos + offset;
-            AddAttachmentPoint(neighborPos);
+            CheckAddDecorations(neighborPos, refresh);
         }
-        // UpdateAttachmentPoints();
     }
 
-    void AddAttachmentPoint(Vector2Int pos)
+    void CheckAddDecorations(Vector2Int pos, bool refresh = false)
     {
         int? iModuleNullable = Index(pos);
         if(!iModuleNullable.HasValue) return;
         int iModule = iModuleNullable.Value;
+        if(refresh) moduleSlots[iModule].ClearDecorations();
         CheckAddWheel(iModule);
-        if (moduleSlots[iModule].IsOccupied()) return;
+        CheckAddAttachmentPoint(iModule);
+    }
+
+    private bool CheckAddAttachmentPoint(int iModule)
+    {
+        Vector2Int pos = Pos(iModule).Value;
+        if (moduleSlots[iModule].IsOccupied()) return false;
+        if (!AnyNeighborHasModule(pos)) return false;
         Vector3 pos3 = new Vector3(pos.x, pos.y, 0);
         AttachmentPoint ap = Ui.UiManager.GetInstance().AddAttachmentPoint(gameObject, pos3);
         moduleSlots[iModule].attachmentPoint = ap;
@@ -132,10 +187,41 @@ public class ModuleGrid : MonoBehaviour
         {
             PlaceCurrentModule(pos);
         });
+        return true;
     }
 
-    private void CheckAddWheel(int iModule)
+    private bool AnyNeighborHasModule(Vector2Int pos)
     {
+        foreach(Direction dir in AllDirections())
+        {
+            Vector2Int offset = GetVector2Int(dir);
+            Vector2Int neighborPos = pos + offset;
+            if (HasModule(Index(neighborPos))) return true;
+        }
+        return false;
+    }
+
+    private bool HasModule(int? iModule)
+    {
+        if(!iModule.HasValue) return false;
+        return moduleSlots[iModule.Value].module;
+    }
+
+    private void CheckAddWheel(int? iModule, bool refresh = false)
+    {
+        if(iModule.HasValue)
+        {
+            CheckAddWheel(iModule.Value, refresh);
+        }
+    }
+
+    private void CheckAddWheel(int iModule, bool refresh = false)
+    {
+        if(refresh)
+        {
+            GameObject wheel = moduleSlots[iModule].wheel;
+            if(wheel) GameObject.Destroy(wheel);
+        }
         if(!moduleSlots[iModule].CanAddWheel()) return;
         Vector2Int pos = Pos(iModule).Value;
         CheckAddSideWheel(pos, Vector2Int.left);
@@ -160,11 +246,11 @@ public class ModuleGrid : MonoBehaviour
 
     private bool CanHaveWheel(Vector2Int pos)
     {
-        if(pos.x == startModulePos.x)
-        {
-            int yDist = pos.y - startModulePos.y;
-            if(yDist == 0 || yDist == 1) return false;
-        }
+        // if(pos.x == startModulePos.x)
+        // {
+        //     int yDist = pos.y - startModulePos.y;
+        //     if(yDist == 0 || yDist == 1) return false;
+        // }
         int? iModuleNullable = Index(pos);
         if(!iModuleNullable.HasValue) return false;
         int iModule = iModuleNullable.Value;
