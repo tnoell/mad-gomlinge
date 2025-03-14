@@ -10,6 +10,10 @@ public abstract class MaintenanceTask : MonoBehaviour
     {
         maintenanceTimer = GetComponent<MaintenanceTimer>();
         GetComponent<Module>().onDoMaintenance.AddListener(HandleMaintenance);
+    }
+
+    protected virtual void Start()
+    {
         if(waitForMaintenanceThreshold)
         {
             needsMaintenance = false;

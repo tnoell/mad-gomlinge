@@ -39,6 +39,7 @@ namespace Combat
                 onDeathUnity.Invoke();
                 return false;
             };
+            onHealthChanged = null;
         }
 
         public void SetTarget(Combatant target)

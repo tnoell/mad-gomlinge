@@ -37,6 +37,7 @@ public class Environment : MonoBehaviour
 
     void Awake()
     {
+        onMove = null;
         instance = this;
         scrollingStepSize = background.bounds.size.y;
         // duplicate background downwards
