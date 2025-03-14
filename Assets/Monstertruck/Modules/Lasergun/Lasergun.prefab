@@ -430,8 +430,10 @@ MonoBehaviour:
   waitForMaintenanceThreshold: {fileID: 0}
   activatableComponents:
   - {fileID: 283487973738023940}
-  - {fileID: 4504332763172910383}
   fullCooldownSeconds: 10
+  moduleActivated:
+    sharedWithAnimator: {fileID: 4504332763172910383}
+    variableName: IsFiring
 --- !u!82 &7206910505388277166 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6083248062709336386, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
