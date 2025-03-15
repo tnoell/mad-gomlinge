@@ -763,16 +763,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2936457853959404233, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_Volume
-      value: 0.43
+      value: 0.667
       objectReference: {fileID: 0}
     - target: {fileID: 2936457853959404233, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 65d2c25c9c1e089419e1f448777aff2d, type: 3}
+      objectReference: {fileID: 8300000, guid: 9eea725f0cc192347a315192aab52261, type: 3}
     - target: {fileID: 2936457853959404233, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 65d2c25c9c1e089419e1f448777aff2d, type: 3}
+      objectReference: {fileID: 8300000, guid: 9eea725f0cc192347a315192aab52261, type: 3}
     - target: {fileID: 6843967845817385719, guid: f477b111cd8652b4aa73560dfef322af, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -803,7 +803,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 89faf8f422cf2074fa8ac7814b722f0a, type: 3}
   m_Resource: {fileID: 8300000, guid: 89faf8f422cf2074fa8ac7814b722f0a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.735
+  m_Volume: 0.475
   m_Pitch: 1
   Loop: 1
   Mute: 0
