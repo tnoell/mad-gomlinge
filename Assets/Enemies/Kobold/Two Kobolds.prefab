@@ -131,15 +131,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2393727440745745969, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
       propertyPath: m_Color.b
-      value: 0.9137255
+      value: 0.40392157
       objectReference: {fileID: 0}
     - target: {fileID: 2393727440745745969, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
       propertyPath: m_Color.g
-      value: 0.85882354
+      value: 0.5647059
       objectReference: {fileID: 0}
     - target: {fileID: 2393727440745745969, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
       propertyPath: m_Color.r
-      value: 0.35686275
+      value: 0.8980392
       objectReference: {fileID: 0}
     - target: {fileID: 3634591871155225059, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
       propertyPath: movementDuration
@@ -211,6 +211,9 @@ MonoBehaviour:
   attackOrigin: {fileID: 1325181586424112364}
   startCharged: 1
   shotAnimator: {fileID: 3273449411836182193}
+  onLaunched:
+    m_PersistentCalls:
+      m_Calls: []
   nAttacks: 3
 --- !u!4 &1325181586424112364 stripped
 Transform:
