@@ -19,4 +19,24 @@ class Util
         Gizmos.color = color;
         Gizmos.DrawLineStrip(points, true);
     }
+
+    public static T[] ClonedElementArray<T>(int count, T obj) where T : ICloneable
+    {
+        T[] result = new T[count];
+        for(int i = 0; i < result.Length; i++)
+        {
+            result[i] = (T)obj.Clone();
+        }
+        return result;
+    }
+
+    public static T[] DefaultedArray<T>(int count) where T : new()
+    {
+        T[] result = new T[count];
+        for(int i = 0; i < result.Length; i++)
+        {
+            result[i] = new T();
+        }
+        return result;
+    }
 }

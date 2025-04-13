@@ -4,8 +4,8 @@ using UnityEngine;
 public class StatChanger : MonoBehaviour
 {
     [SerializeField] float amount;
-    [SerializeField] private PlayerStats.Stat stat;
-    private PlayerStats.StatChange appliedStatChange;
+    [SerializeField] private PlayerStat stat;
+    private PlayerStats.Modifier appliedStatChange;
 
     void Awake()
     {
@@ -24,8 +24,8 @@ public class StatChanger : MonoBehaviour
     public void Apply()
     {
         if(appliedStatChange != null) return;
-        appliedStatChange = new PlayerStats.StatChange(stat, amount, gameObject);
-        GameObject.FindWithTag("Player").GetComponent<PlayerStats>().AddChange(appliedStatChange);
+        appliedStatChange = new PlayerStats.Modifier(stat, amount, gameObject);
+        GameObject.FindWithTag("Player").GetComponent<PlayerStats>().AddModifier(appliedStatChange);
     }
 
     public void Unapply()
