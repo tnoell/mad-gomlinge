@@ -92,6 +92,19 @@ public class ModuleGrid : MonoBehaviour
     }
     private List<ModuleSlot> moduleSlots;
 
+    private struct ModulePos
+    {
+        public int index;
+        public Vector2Int vec;
+        public Vector3Int Vector3Int()
+        {
+            return (Vector3Int)vec;
+        }
+        public Vector3 Vector3()
+        {
+            return (Vector3)Vector3Int();
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -102,37 +115,34 @@ public class ModuleGrid : MonoBehaviour
             moduleSlots.Add(new ModuleSlot());
         }
         Module module = GameObject.Instantiate(startModule, transform);
-        SetModule(startModulePos, module);
+        SetModule(Pos(startModulePos).Value, module);
     }
 
-    int? Index(int x, int y)
+    ModulePos? Pos(Vector2Int pos)
     {
-        if(x < 0 || x >= size.x) return null;
-        if(y < 0 || y >= size.y) return null;
-        return y * size.x + x;
+        if(pos.x < 0 || pos.x >= size.x) return null;
+        if(pos.y < 0 || pos.y >= size.y) return null;
+        return new ModulePos{ index = pos.y * size.x + pos.x, vec = pos };
     }
 
-    int? Index(Vector2Int pos)
+    ModulePos? Pos(int x, int y)
     {
-        return Index(pos.x, pos.y);
+        return Pos(new Vector2Int(x, y));
     }
 
-    Vector2Int? Pos(int index)
+    ModulePos? Pos(int index)
     {
         if(index < 0 || index >= moduleSlots.Count) return null;
-        return new Vector2Int(index % size.x, index / size.x);
+        return new ModulePos{ index = index, vec = new Vector2Int(index % size.x, index / size.x) };
     }
 
-    void SetModule(Vector2Int pos, Module moduleInstance)
+    void SetModule(ModulePos pos, Module moduleInstance)
     {
-        int? indexNullable = Index(pos);
-        if(!indexNullable.HasValue) throw new Exception("Invalid pos: " + pos);
-        int index = indexNullable.Value;
-        moduleSlots[index].Clear();
+        moduleSlots[pos.index].Clear();
         moduleInstance.transform.parent = transform;
-        moduleInstance.transform.localPosition = new Vector3(pos.x, pos.y, 0);
-        moduleSlots[index].module = moduleInstance;
-        moduleInstance.SetOnGround(false, moduleSlots.Count - index);
+        moduleInstance.transform.localPosition = pos.Vector3();
+        moduleSlots[pos.index].module = moduleInstance;
+        moduleInstance.SetOnGround(false, moduleSlots.Count - pos.index);
         CheckAddAllNeighborDecorations(pos);
         // UpdateAttachmentPoints();
     }
@@ -150,39 +160,35 @@ public class ModuleGrid : MonoBehaviour
             if(moduleSlots[iModule].module == module) break;
         }
         moduleSlots[iModule].Clear();
-        Vector2Int pos = Pos(iModule).Value;
+        ModulePos pos = Pos(iModule).Value;
         CheckAddDecorations(pos, true);
         CheckAddAllNeighborDecorations(pos, true);
     }
 
-    private void CheckAddAllNeighborDecorations(Vector2Int pos, bool refresh = false)
+    private void CheckAddAllNeighborDecorations(ModulePos pos, bool refresh = false)
     {
         foreach(Direction dir in AllDirections())
         {
             Vector2Int offset = GetVector2Int(dir);
-            Vector2Int neighborPos = pos + offset;
-            CheckAddDecorations(neighborPos, refresh);
+            ModulePos? neighborPos = Pos(pos.vec + offset);
+            if(!neighborPos.HasValue) continue;
+            CheckAddDecorations(neighborPos.Value, refresh);
         }
     }
 
-    void CheckAddDecorations(Vector2Int pos, bool refresh = false)
+    void CheckAddDecorations(ModulePos pos, bool refresh = false)
     {
-        int? iModuleNullable = Index(pos);
-        if(!iModuleNullable.HasValue) return;
-        int iModule = iModuleNullable.Value;
-        if(refresh) moduleSlots[iModule].ClearDecorations();
-        CheckAddWheel(iModule);
-        CheckAddAttachmentPoint(iModule);
+        if(refresh) moduleSlots[pos.index].ClearDecorations();
+        CheckAddWheel(pos);
+        CheckAddAttachmentPoint(pos);
     }
 
-    private bool CheckAddAttachmentPoint(int iModule)
+    private bool CheckAddAttachmentPoint(ModulePos pos)
     {
-        Vector2Int pos = Pos(iModule).Value;
-        if (moduleSlots[iModule].IsOccupied()) return false;
+        if (moduleSlots[pos.index].IsOccupied()) return false;
         if (!AnyNeighborHasModule(pos)) return false;
-        Vector3 pos3 = new Vector3(pos.x, pos.y, 0);
-        AttachmentPoint ap = Ui.UiManager.GetInstance().AddAttachmentPoint(gameObject, pos3);
-        moduleSlots[iModule].attachmentPoint = ap;
+        AttachmentPoint ap = Ui.UiManager.GetInstance().AddAttachmentPoint(gameObject, pos.Vector3());
+        moduleSlots[pos.index].attachmentPoint = ap;
         ap.GetComponent<Button>().onClick.AddListener(() => 
         {
             PlaceCurrentModule(pos);
@@ -190,71 +196,68 @@ public class ModuleGrid : MonoBehaviour
         return true;
     }
 
-    private bool AnyNeighborHasModule(Vector2Int pos)
+    private bool AnyNeighborHasModule(ModulePos pos)
     {
         foreach(Direction dir in AllDirections())
         {
             Vector2Int offset = GetVector2Int(dir);
-            Vector2Int neighborPos = pos + offset;
-            if (HasModule(Index(neighborPos))) return true;
+            ModulePos? neighborPos = Pos(pos.vec + offset);
+            if (HasModule(neighborPos)) return true;
         }
         return false;
     }
 
-    private bool HasModule(int? iModule)
+    private bool HasModule(ModulePos? pos)
     {
-        if(!iModule.HasValue) return false;
-        return moduleSlots[iModule.Value].module;
+        if(!pos.HasValue) return false;
+        return moduleSlots[pos.Value.index].module;
     }
 
-    private void CheckAddWheel(int? iModule, bool refresh = false)
+    private void CheckAddWheel(ModulePos? pos, bool refresh = false)
     {
-        if(iModule.HasValue)
+        if(pos.HasValue)
         {
-            CheckAddWheel(iModule.Value, refresh);
+            CheckAddWheel(pos.Value, refresh);
         }
     }
 
-    private void CheckAddWheel(int iModule, bool refresh = false)
+    private void CheckAddWheel(ModulePos pos, bool refresh = false)
     {
         if(refresh)
         {
-            GameObject wheel = moduleSlots[iModule].wheel;
+            GameObject wheel = moduleSlots[pos.index].wheel;
             if(wheel) GameObject.Destroy(wheel);
         }
-        if(!moduleSlots[iModule].CanAddWheel()) return;
-        Vector2Int pos = Pos(iModule).Value;
+        if(!moduleSlots[pos.index].CanAddWheel()) return;
         CheckAddSideWheel(pos, Vector2Int.left);
         CheckAddSideWheel(pos, Vector2Int.right);
     }
 
-    private bool CheckAddSideWheel(Vector2Int emptyPos, Vector2Int neighborDir)
+    private bool CheckAddSideWheel(ModulePos emptyPos, Vector2Int neighborDir)
     {
-        Vector2Int neighborPos = emptyPos + neighborDir;
+        ModulePos? neighborPos = Pos(emptyPos.vec + neighborDir);
         if(!CanHaveWheel(neighborPos)) return false;
         GameObject wheelInstance = GameObject.Instantiate(wheelPrefab, transform);
-        Vector2 sideWheelPos = wheelOffset;
-        if(sideWheelPos.x > 0 != neighborDir.x > 0)
+        Vector2 sideWheelLocalPos = wheelOffset;
+        if(sideWheelLocalPos.x > 0 != neighborDir.x > 0)
         {
-            sideWheelPos.x *= -1;
+            sideWheelLocalPos.x *= -1;
         }
-        sideWheelPos += emptyPos;
-        wheelInstance.transform.localPosition = sideWheelPos;
-        moduleSlots[Index(emptyPos).Value].wheel = wheelInstance;
+        sideWheelLocalPos += emptyPos.vec;
+        wheelInstance.transform.localPosition = sideWheelLocalPos;
+        moduleSlots[emptyPos.index].wheel = wheelInstance;
         return true;
     }
 
-    private bool CanHaveWheel(Vector2Int pos)
+    private bool CanHaveWheel(ModulePos? pos)
     {
         // if(pos.x == startModulePos.x)
         // {
         //     int yDist = pos.y - startModulePos.y;
         //     if(yDist == 0 || yDist == 1) return false;
         // }
-        int? iModuleNullable = Index(pos);
-        if(!iModuleNullable.HasValue) return false;
-        int iModule = iModuleNullable.Value;
-        return moduleSlots[iModule].module != null;
+        if(!pos.HasValue) return false;
+        return moduleSlots[pos.Value.index].module != null;
     }
 
     // void UpdateAttachmentPoints()
@@ -277,7 +280,7 @@ public class ModuleGrid : MonoBehaviour
     //     }
     // }
 
-    void PlaceCurrentModule(Vector2Int pos)
+    void PlaceCurrentModule(ModulePos pos)
     {
         ModuleHolder moduleHolder = GameObject.FindWithTag("GameManager").GetComponent<ModuleHolder>();
         Module module = moduleHolder.PopModule();
