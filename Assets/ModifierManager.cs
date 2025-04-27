@@ -62,12 +62,12 @@ public class ModifierManager<IdentifierEnum> : MonoBehaviour where IdentifierEnu
 
     private ModifiableValue[] modifiableValues;
 
-    void Awake()
+    virtual protected void Awake()
     {
         modifiableValues = Util.DefaultedArray<ModifiableValue>(Enum.GetNames(typeof(IdentifierEnum)).Length);
     }
 
-    void Update()
+    virtual protected void Update()
     {
         foreach(ModifiableValue value in modifiableValues)
         {

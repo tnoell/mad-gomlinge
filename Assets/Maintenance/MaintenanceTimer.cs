@@ -14,18 +14,27 @@ public class MaintenanceTimer : MonoBehaviour
     private bool running;
     public bool IsRunning() { return running; }
 
+    private float durationMultiplier;
+    public void SetDurationMultiplier(float val) { durationMultiplier = val; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         progress = 0;
         isBroken = false;
         running = true;
+        durationMultiplier = 1;
         Module module = GetComponent<Module>();
         if(module)
         {
             module.onAttached.AddListener(Restart);
             module.onUnattached.AddListener(Stop);
         }
+    }
+
+    private float GetModifiedDuration()
+    {
+        return duration * durationMultiplier;
     }
 
     public void Stop()
@@ -47,7 +56,7 @@ public class MaintenanceTimer : MonoBehaviour
     void FixedUpdate()
     {
         if(!running || isBroken) return;
-        ChangeProgress(Time.fixedDeltaTime / duration);
+        ChangeProgress(Time.fixedDeltaTime / GetModifiedDuration());
     }
 
     public void ChangeProgress(float amount)
