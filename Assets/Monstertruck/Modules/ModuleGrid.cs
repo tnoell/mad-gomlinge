@@ -47,29 +47,51 @@ public class ModuleGrid : MonoBehaviour
                 if(IsOccupied())
                 { throw new Exception("slot already occupied"); }
                 _attachmentPoint = value;
-             }
+            }
         }
-        private GameObject _wheel = null;
-        public GameObject wheel
+        private GameObject _leftWheel = null;
+        public GameObject leftWheel
         {
-            get { return _wheel; }
+            get { return _leftWheel; }
             set {
                 if(value == null)
                 {
-                    if(_wheel == null) return;
-                    GameObject.Destroy(_wheel);
-                    _wheel = null;
+                    if(_leftWheel == null) return;
+                    GameObject.Destroy(_leftWheel);
+                    _leftWheel = null;
                     return;
                 }
-                if(!CanAddWheel())
+                if(!CanAddLeftWheel())
                 { throw new Exception("slot already occupied"); }
-                _wheel = value;
+                _leftWheel = value;
+             }
+        }
+        public bool CanAddLeftWheel()
+        {
+            return !_module && !_leftWheel;
+        }
+
+        private GameObject _rightWheel = null;
+        public GameObject rightWheel
+        {
+            get { return _rightWheel; }
+            set {
+                if(value == null)
+                {
+                    if(_rightWheel == null) return;
+                    GameObject.Destroy(_rightWheel);
+                    _rightWheel = null;
+                    return;
+                }
+                if(!CanAddRightWheel())
+                { throw new Exception("slot already occupied"); }
+                _rightWheel = value;
              }
         }
 
-        public bool CanAddWheel()
+        public bool CanAddRightWheel()
         {
-            return !_module && !_wheel; // not blocked by attachmentPoint
+            return !_module && !_rightWheel;
         }
 
         public bool IsOccupied()
@@ -80,14 +102,14 @@ public class ModuleGrid : MonoBehaviour
         public void ClearDecorations()
         {
             attachmentPoint = null;
-            wheel = null;
+            leftWheel = null;
+            rightWheel = null;
         }
 
         public void Clear()
         {
             module = null;
-            attachmentPoint = null;
-            wheel = null;
+            ClearDecorations();
         }
     }
     private List<ModuleSlot> moduleSlots;
@@ -225,27 +247,39 @@ public class ModuleGrid : MonoBehaviour
     {
         if(refresh)
         {
-            GameObject wheel = moduleSlots[pos.index].wheel;
-            if(wheel) GameObject.Destroy(wheel);
+            moduleSlots[pos.index].leftWheel = null;
+            moduleSlots[pos.index].rightWheel = null;
         }
-        if(!moduleSlots[pos.index].CanAddWheel()) return;
-        CheckAddSideWheel(pos, Vector2Int.left);
-        CheckAddSideWheel(pos, Vector2Int.right);
+        if(moduleSlots[pos.index].CanAddLeftWheel())
+        { CheckAddSideWheel(pos, Direction.left); }
+        if(moduleSlots[pos.index].CanAddRightWheel())
+        { CheckAddSideWheel(pos, Direction.right); }
     }
 
-    private bool CheckAddSideWheel(ModulePos emptyPos, Vector2Int neighborDir)
+    private bool CheckAddSideWheel(ModulePos emptyPos, Direction neighborDir)
     {
-        ModulePos? neighborPos = Pos(emptyPos.vec + neighborDir);
+        Vector2Int neighborDirVec = GetVector2Int(neighborDir);
+        ModulePos? neighborPos = Pos(emptyPos.vec + neighborDirVec);
         if(!CanHaveWheel(neighborPos)) return false;
         GameObject wheelInstance = GameObject.Instantiate(wheelPrefab, transform);
         Vector2 sideWheelLocalPos = wheelOffset;
-        if(sideWheelLocalPos.x > 0 != neighborDir.x > 0)
+        if(sideWheelLocalPos.x > 0 != neighborDirVec.x > 0)
         {
             sideWheelLocalPos.x *= -1;
         }
         sideWheelLocalPos += emptyPos.vec;
         wheelInstance.transform.localPosition = sideWheelLocalPos;
-        moduleSlots[emptyPos.index].wheel = wheelInstance;
+        switch(neighborDir)
+        {
+        case Direction.left:
+            moduleSlots[emptyPos.index].leftWheel = wheelInstance;
+            break;
+        case Direction.right:
+            moduleSlots[emptyPos.index].rightWheel = wheelInstance;
+            break;
+        default:
+            throw new Exception("unhandled direction");
+        }
         return true;
     }
 
