@@ -18,7 +18,7 @@ public class Module : MonoBehaviour
     private bool onGround = false;
     private bool broken;
 
-    public void SetOnGround(bool onGround, int spriteOrderInLayer)
+    public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
     {
         this.onGround = onGround;
         GameObject[] visuals = new GameObject[]{visualWhenOnGround, visualWhenAttached};
@@ -34,11 +34,6 @@ public class Module : MonoBehaviour
             renderer.sortingOrder = spriteOrderInLayer;
         }
         InvokeAttachEvent();
-    }
-
-    public void SetOnGround(bool onGround)
-    {
-        SetOnGround(onGround, 0);
     }
 
     private void InvokeAttachEvent()
@@ -112,6 +107,7 @@ public class Module : MonoBehaviour
         GameObject.Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform.parent);
         if(destroy)
         {
+            SetOnGround(true);
             GetComponentInParent<ModuleGrid>().DestroyModule(this);
         }
     }
