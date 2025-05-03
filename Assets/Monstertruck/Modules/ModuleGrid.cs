@@ -7,6 +7,9 @@ using static DirectionUtil;
 
 public class ModuleGrid : MonoBehaviour
 {
+    public delegate void OnModuleChanged(ModulePos pos, Module module);
+    public OnModuleChanged onModuleChanged;
+
     [SerializeField] private Vector2Int size;
     [SerializeField] private Vector2Int startModulePos;
     [SerializeField] private Module startModule;
@@ -114,10 +117,16 @@ public class ModuleGrid : MonoBehaviour
     }
     private List<ModuleSlot> moduleSlots;
 
-    private struct ModulePos
+    public struct ModulePos
     {
-        public int index;
-        public Vector2Int vec;
+        public readonly int index;
+        public readonly Vector2Int vec;
+
+        public ModulePos(int index, Vector2Int vec)
+        {
+            this.index = index;
+            this.vec = vec;
+        }
         public Vector3Int Vector3Int()
         {
             return (Vector3Int)vec;
@@ -140,11 +149,11 @@ public class ModuleGrid : MonoBehaviour
         SetModule(Pos(startModulePos).Value, module);
     }
 
-    ModulePos? Pos(Vector2Int pos)
+    public ModulePos? Pos(Vector2Int pos)
     {
         if(pos.x < 0 || pos.x >= size.x) return null;
         if(pos.y < 0 || pos.y >= size.y) return null;
-        return new ModulePos{ index = pos.y * size.x + pos.x, vec = pos };
+        return new ModulePos(pos.y * size.x + pos.x, pos);
     }
 
     ModulePos? Pos(int x, int y)
@@ -155,7 +164,7 @@ public class ModuleGrid : MonoBehaviour
     ModulePos? Pos(int index)
     {
         if(index < 0 || index >= moduleSlots.Count) return null;
-        return new ModulePos{ index = index, vec = new Vector2Int(index % size.x, index / size.x) };
+        return new ModulePos(index, new Vector2Int(index % size.x, index / size.x));
     }
 
     void SetModule(ModulePos pos, Module moduleInstance)
@@ -167,24 +176,45 @@ public class ModuleGrid : MonoBehaviour
         moduleInstance.SetOnGround(false, moduleSlots.Count - pos.index);
         CheckAddAllNeighborDecorations(pos);
         // UpdateAttachmentPoints();
+        onModuleChanged?.Invoke(pos, moduleInstance);
     }
 
     public void DestroyModule(Module module)
     {
-        int iModule;
-        for(iModule = 0; ; iModule++)
-        {
-            if(iModule == moduleSlots.Count)
-            {
-                Debug.LogError("Module " + module + " not found for deletion");
-                return;
-            }
-            if(moduleSlots[iModule].module == module) break;
-        }
-        moduleSlots[iModule].Clear();
-        ModulePos pos = Pos(iModule).Value;
+        ModulePos pos = FindModule(module);
+        moduleSlots[pos.index].Clear();
         CheckAddDecorations(pos, true);
         CheckAddAllNeighborDecorations(pos, true);
+        onModuleChanged?.Invoke(pos, null);
+    }
+
+    public Module GetModule(ModulePos pos)
+    {
+        return moduleSlots[pos.index].module;
+    }
+
+    public ModulePos FindModule(Module module)
+    {
+        for(int iModule = 0; iModule < moduleSlots.Count; iModule++)
+        {
+            if(moduleSlots[iModule].module == module) return Pos(iModule).Value;
+        }
+        throw new Exception("Module " + module + " not found in grid");
+    }
+
+
+    public List<Module> GetModulesAtOffsets(ModulePos basePos, List<Vector2Int> offsets)
+    {
+        List<Module> modules = new List<Module>();
+        for(int i = 0; i < offsets.Count; i++)
+        {
+            ModulePos? pos = Pos(basePos.vec + offsets[i]);
+            if(!pos.HasValue) continue;
+            Module module = GetModule(pos.Value);
+            if(!module) continue;
+            modules.Add(module);
+        }
+        return modules;
     }
 
     private void CheckAddAllNeighborDecorations(ModulePos pos, bool refresh = false)
