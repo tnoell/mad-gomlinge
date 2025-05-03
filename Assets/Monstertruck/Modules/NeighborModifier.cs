@@ -9,6 +9,7 @@ public class NeighborModifier : MonoBehaviour
         Vector2Int.left,
         Vector2Int.right,
     };
+    [SerializeField] private string tagFilter;
     [SerializeField] float amount;
     [SerializeField] private ModuleStat stat;
 
@@ -42,6 +43,7 @@ public class NeighborModifier : MonoBehaviour
 
     private void AddModifier(Module neighbor)
     {   
+        if(tagFilter != "" && !Tags.HasTag(neighbor, tagFilter)) return;
         ModuleStats neighborStats = neighbor.GetComponent<ModuleStats>();
         ModuleStats.Modifier modifier = new ModuleStats.Modifier(stat, amount, gameObject);
         neighborStats.AddModifier(modifier);

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.36862746}
+  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.36862746}
+  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -251,7 +251,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.36862746}
+  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -338,7 +338,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.36862746}
+  m_Color: {r: 0.617, g: 1, b: 0.75699306, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -356,6 +356,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4998910846471980069, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: tagList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4998910846471980069, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: 'tagList.Array.data[3]'
+      value: FuelTank
+      objectReference: {fileID: 0}
     - target: {fileID: 120573901927792480, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -466,6 +474,7 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: -1, y: 0}
   - {x: 1, y: 0}
+  tagFilter: EngineModule
   amount: 1
   stat: 0
 --- !u!4 &8121276019970726147 stripped
