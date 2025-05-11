@@ -289,18 +289,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1778726503295295735}
     m_Modifications:
-    - target: {fileID: 655814860154220015, guid: 3126e8acc5b27244c9407a846b021421, type: 3}
-      propertyPath: wheelPrefab
-      value: 
-      objectReference: {fileID: 9021203461278975789, guid: e81d9c4744cfdd84f9a08273996c2039, type: 3}
-    - target: {fileID: 655814860154220015, guid: 3126e8acc5b27244c9407a846b021421, type: 3}
-      propertyPath: wheelOffset.x
-      value: 0.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 655814860154220015, guid: 3126e8acc5b27244c9407a846b021421, type: 3}
-      propertyPath: wheelOffset.y
-      value: -0.33
-      objectReference: {fileID: 0}
     - target: {fileID: 5946420756109860799, guid: 3126e8acc5b27244c9407a846b021421, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
