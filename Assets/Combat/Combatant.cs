@@ -18,6 +18,7 @@ namespace Combat
         [SerializeField] private float maxHealth = 100;
 
         private float currentHealth;
+        private float damageMultiplier;
 
         private Combatant currentTarget;
 
@@ -29,11 +30,13 @@ namespace Combat
         }
         public float GetHealth() { return currentHealth; }
         public float GetHealthFraction() { return currentHealth / maxHealth; }
+        public void SetDamageMultiplier(float multiplier) { this.damageMultiplier = multiplier; }
 
         // Start is called before the first frame update
         void Awake()
         {
             currentHealth = maxHealth;
+            damageMultiplier = 1;
             currentTarget = null;
             onDeath = (string killedBy) => {
                 onDeathUnity.Invoke();
@@ -64,6 +67,7 @@ namespace Combat
         public void DealDamage(float damageAmount, string source)
         {
             if (damageAmount < 0) damageAmount = 0;
+            damageAmount *= damageMultiplier;
             currentHealth -= damageAmount;
             onHealthChanged?.Invoke(-damageAmount);
             if (currentHealth <= 0)

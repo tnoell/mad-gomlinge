@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class StatChanger : MonoBehaviour
 {
+    //TODO: change to OnEnable/OnDisable like in Trigger, so I can put multiple on a sub-object that I enable/disable
     [SerializeField] float amount;
     [SerializeField] private PlayerStat stat;
     private PlayerStats.Modifier appliedStatChange;

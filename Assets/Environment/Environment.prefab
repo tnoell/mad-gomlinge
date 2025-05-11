@@ -109,6 +109,7 @@ MonoBehaviour:
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}
   - {fileID: 1834592447520924678, guid: 70628d7ca2137384da2d03703f788b32, type: 3}
   - {fileID: 669237139175545959, guid: 55d80d37eb1781b4582900bd35dae2f3, type: 3}
+  - {fileID: 669237139175545959, guid: d09814684a82d5e4e9809e6c18dd4bd9, type: 3}
   spawnDistanceInterval: 7.5
 --- !u!114 &5337969918009183711
 MonoBehaviour:
