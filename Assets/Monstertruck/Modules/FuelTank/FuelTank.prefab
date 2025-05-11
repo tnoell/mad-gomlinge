@@ -420,6 +420,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3647059
       objectReference: {fileID: 0}
+    - target: {fileID: 4564963438270272741, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      propertyPath: duration
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7592464295603438583, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       propertyPath: m_Color.b
       value: 0.57254905
@@ -432,7 +436,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3647059
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6229174496619270659, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5827901137381643662, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -451,7 +456,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: -466377390661093911}
+    - targetCorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4075423044673898522}
   m_SourcePrefab: {fileID: 100100000, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+--- !u!114 &1306668071563593037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3636229022735534528, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
+  m_PrefabInstance: {fileID: 2329571260196621453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367438225131446809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dbd90238c21364db7c60433312b679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3367438225131446809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076298251330825876, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
@@ -477,6 +496,23 @@ MonoBehaviour:
   tagFilter: EngineModule
   amount: 1
   stat: 0
+--- !u!114 &4075423044673898522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367438225131446809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013924c1d7c951a4983a3d296c3291ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  waitForMaintenanceThreshold: {fileID: 1306668071563593037}
+  minigamePrefab: {fileID: 2157105679652061277, guid: 53243bead0cca2d45b63d08d6b351234, type: 3}
 --- !u!4 &8121276019970726147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5827901137381643662, guid: 765a7ba03cb6b6b44bfc488ee5d1c5d2, type: 3}
