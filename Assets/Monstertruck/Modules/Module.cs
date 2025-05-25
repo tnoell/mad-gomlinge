@@ -18,7 +18,7 @@ public class Module : MonoBehaviour
     private bool onGround = false;
     private bool broken;
 
-    public void SetOnGround(bool onGround, int spriteOrderInLayer = 0)
+    public void SetOnGround(bool onGround, int spriteOrderInLayer)
     {
         this.onGround = onGround;
         GameObject[] visuals = new GameObject[]{visualWhenOnGround, visualWhenAttached};
@@ -36,9 +36,15 @@ public class Module : MonoBehaviour
         InvokeAttachEvent();
     }
 
+
+    public void SetOnGround(bool onGround) // used in Event in Tutorial (Unity events don't like default parameters)
+    {
+        SetOnGround(onGround, 0);
+    }
+
     private void InvokeAttachEvent()
     {
-        if(onGround)
+        if (onGround)
         {
             onUnattached.Invoke();
         }

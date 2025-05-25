@@ -5,36 +5,48 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float initialDelay;
     [SerializeField] private Combat.Combatant[] enemyPrefabSequence;
-    [SerializeField] private UnityEvent onFinish;
+    [SerializeField] public UnityEvent onFinish;
     [SerializeField] private bool spawnAutomatically = true;
 
     private Combat.Combatant currentEnemyInstance;
     private int iNextEnemy;
     private float initialDelayLeft;
 
+    public Combat.Combatant[] EnemyPrefabSequence
+    {
+        get => enemyPrefabSequence;
+        set
+        {
+            enemyPrefabSequence = value;
+            iNextEnemy = 0;
+        }
+    }
+
     void Awake()
     {
         currentEnemyInstance = null;
+        if (spawnAutomatically) BeginSpawning();
+    }
+
+    public void BeginSpawning()
+    {
         iNextEnemy = 0;
         initialDelayLeft = initialDelay;
+        spawnAutomatically = true;
     }
 
     private bool SpawnNextEnemy()
     {
-        if(iNextEnemy < enemyPrefabSequence.Length)
+        if (iNextEnemy < enemyPrefabSequence.Length)
         {
             SpawnEnemy(enemyPrefabSequence[iNextEnemy].gameObject);
             iNextEnemy++;
             return true;
         }
-        else if(iNextEnemy == enemyPrefabSequence.Length)
-        {
-            onFinish.Invoke();
-            iNextEnemy++;
-            return false;
-        }
         else
         {
+            onFinish.Invoke();
+            spawnAutomatically = false;
             return false;
         }
     }
@@ -52,7 +64,6 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(enemy);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!spawnAutomatically) return;

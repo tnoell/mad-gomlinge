@@ -31,20 +31,16 @@ public class SequenceElement : MonoBehaviour
 
     public void Begin()
     {
-        if(precedingDelay == 0)
+        if(precedingDelay != 0)
         {
-            DoBegin();
+            Debug.Log("SequenceElement " + name + " delay started");
         }
-        else
-        {
-            Debug.Log("State " + name + " delay started");
-            startAt = Time.time + precedingDelay;
-        }
+        startAt = Time.time + precedingDelay;
     }
 
     private void DoBegin()
     {
-        Debug.Log("State " + name + " started");
+        Debug.Log("SequenceElement " + name + " started");
         if(state != State.waiting) throw new Exception("DoBegin called twice");
         state = State.running;
         onStart.Invoke();
@@ -66,7 +62,7 @@ public class SequenceElement : MonoBehaviour
                 if(SubIsFinished())
                 {
                     onFinish.Invoke();
-                    Debug.Log("State " + name + " finished");
+                    Debug.Log("SequenceElement " + name + " finished");
                     state = State.finished;
                 }
                 break;
@@ -84,10 +80,10 @@ public class SequenceElement : MonoBehaviour
 
     protected virtual bool SubIsFinished() { return true; }
 
-    public void Complete(bool complete)
+    public void Complete()
     {
         Debug.Log(name + " got completion");
-        hasCompletion = complete;
+        hasCompletion = true;
     }
 
     public void SetTimeScale(float scale)

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7325ccd67823d9e41958f092189584c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAutomatically: 1
+  spawnAutomatically: 0
   modulePrefabs:
   - {fileID: 1834592447520924678, guid: fbd557ccfd2f27d4cb162b9c7f75e315, type: 3}
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}
@@ -136,20 +136,8 @@ MonoBehaviour:
   - {fileID: 7249007314526046217, guid: b0b22833ff991e74faefa5b286a36f54, type: 3}
   onFinish:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8418735175302638658}
-        m_TargetAssemblyTypeName: MenuActions, Assembly-CSharp
-        m_MethodName: ChangeStateToVictory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MainMenu
-          m_BoolArgument: 0
-        m_CallState: 2
-  spawnAutomatically: 1
+      m_Calls: []
+  spawnAutomatically: 0
 --- !u!114 &8418735175302638658
 MonoBehaviour:
   m_ObjectHideFlags: 0

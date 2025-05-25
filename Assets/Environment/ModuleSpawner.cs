@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ModuleSpawner : MonoBehaviour
@@ -7,6 +8,25 @@ public class ModuleSpawner : MonoBehaviour
     [SerializeField] private float spawnDistanceInterval;
     private float nextSpawnDistance;
     private int orderCounter;
+
+    public bool SpawnAutomatically
+    {
+        get => spawnAutomatically;
+        set
+        {
+            spawnAutomatically = value;
+            nextSpawnDistance = 0;
+        }
+    }
+    public Module[] ModulePrefabs
+    {
+        get => modulePrefabs;
+        set
+        {
+            modulePrefabs = value;
+            nextSpawnDistance = 0;
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
