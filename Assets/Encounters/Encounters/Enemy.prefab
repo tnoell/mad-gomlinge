@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 7067745978383410759, guid: f51b0300a47690c4db3bd839b690160b, type: 3}
       propertyPath: 'icons.Array.data[0]'
       value: 
-      objectReference: {fileID: -1216179825, guid: a012facb2432a8249905d5dfdd210669, type: 3}
+      objectReference: {fileID: 21300000, guid: 6994bef24e6124c4fad8b6ee723054b6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -104,9 +104,3 @@ MonoBehaviour:
   - {fileID: 1167236635190974952, guid: c8d299be080473942bceefbbd61789b0, type: 3}
   - {fileID: 1167236635190974952, guid: c8d299be080473942bceefbbd61789b0, type: 3}
   - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
-  - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
-  - {fileID: 1342432480219116061, guid: 191c7133584704d4ab1d69327be09a3c, type: 3}
-  - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
-  - {fileID: 6444458222359156667, guid: 0832f791c3f0b8f468a1c7f35ed4a5b5, type: 3}
-  - {fileID: 232650308335813307, guid: 6d6aa87c72d3dbe4c8864bc6aa14bae8, type: 3}
-  - {fileID: 7249007314526046217, guid: b0b22833ff991e74faefa5b286a36f54, type: 3}
