@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testEncounterPrefabs:
-  - {fileID: 8607997476317584901, guid: 0b91bd198f44f334e8fa7ca8c1ccf81f, type: 3}
+  - {fileID: 336058895557914950, guid: 8b8460ba4f9cf464bb835ec1260c43dc, type: 3}
+  - {fileID: 698098777037806813, guid: 66c1bb879bc43734cbc83c821f5cd8b2, type: 3}
+  signpostSigns:
+  - {fileID: 0}
+  - {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls:
