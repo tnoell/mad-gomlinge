@@ -22,32 +22,34 @@ public class ModuleGrid : MonoBehaviour
         public Module module
         {
             get { return _module; }
-            set { 
-                if(value == null)
+            set
+            {
+                if (value == null)
                 {
-                    if(_module == null) return;
+                    if (_module == null) return;
                     GameObject.Destroy(_module.gameObject);
                     _module = null;
                     return;
                 }
-                if(IsOccupied())
+                if (IsOccupied())
                 { throw new Exception("slot already occupied"); }
                 _module = value;
-             }
+            }
         }
         private AttachmentPoint _attachmentPoint = null;
         public AttachmentPoint attachmentPoint
         {
             get { return _attachmentPoint; }
-            set { 
-                if(value == null)
+            set
+            {
+                if (value == null)
                 {
-                    if(_attachmentPoint == null) return;
+                    if (_attachmentPoint == null) return;
                     GameObject.Destroy(_attachmentPoint.gameObject);
                     _attachmentPoint = null;
                     return;
                 }
-                if(IsOccupied())
+                if (IsOccupied())
                 { throw new Exception("slot already occupied"); }
                 _attachmentPoint = value;
             }
@@ -56,18 +58,19 @@ public class ModuleGrid : MonoBehaviour
         public GameObject leftWheel
         {
             get { return _leftWheel; }
-            set {
-                if(value == null)
+            set
+            {
+                if (value == null)
                 {
-                    if(_leftWheel == null) return;
+                    if (_leftWheel == null) return;
                     GameObject.Destroy(_leftWheel);
                     _leftWheel = null;
                     return;
                 }
-                if(!CanAddLeftWheel())
+                if (!CanAddLeftWheel())
                 { throw new Exception("slot already occupied"); }
                 _leftWheel = value;
-             }
+            }
         }
         public bool CanAddLeftWheel()
         {
@@ -78,18 +81,19 @@ public class ModuleGrid : MonoBehaviour
         public GameObject rightWheel
         {
             get { return _rightWheel; }
-            set {
-                if(value == null)
+            set
+            {
+                if (value == null)
                 {
-                    if(_rightWheel == null) return;
+                    if (_rightWheel == null) return;
                     GameObject.Destroy(_rightWheel);
                     _rightWheel = null;
                     return;
                 }
-                if(!CanAddRightWheel())
+                if (!CanAddRightWheel())
                 { throw new Exception("slot already occupied"); }
                 _rightWheel = value;
-             }
+            }
         }
 
         public bool CanAddRightWheel()
