@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 655814860154220015}
   m_Layer: 0
   m_Name: ModuleGrid
-  m_TagString: Untagged
+  m_TagString: ModuleGrid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

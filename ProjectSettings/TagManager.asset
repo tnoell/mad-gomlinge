@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - EnvironmentRoot
   - TutorialStartEngine
+  - ModuleGrid
   layers:
   - Default
   - TransparentFX

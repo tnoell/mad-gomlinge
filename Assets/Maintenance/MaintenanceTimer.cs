@@ -8,6 +8,8 @@ public class MaintenanceTimer : MonoBehaviour
     public UnityEvent onRestored;
     [SerializeField] private float duration = 10f;
 
+    private ModuleGrid moduleGrid;
+
     private float progress;
     private bool isBroken;
     public bool IsBroken() { return isBroken; }
@@ -20,6 +22,7 @@ public class MaintenanceTimer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        moduleGrid = GameObject.FindWithTag("ModuleGrid").GetComponent<ModuleGrid>();
         progress = 0;
         isBroken = false;
         running = true;
@@ -56,7 +59,7 @@ public class MaintenanceTimer : MonoBehaviour
     void FixedUpdate()
     {
         if(!running || isBroken) return;
-        ChangeProgress(Time.fixedDeltaTime / GetModifiedDuration());
+        ChangeProgress(Time.fixedDeltaTime * moduleGrid.MaintenanceTimeScale / GetModifiedDuration());
     }
 
     public void ChangeProgress(float amount)

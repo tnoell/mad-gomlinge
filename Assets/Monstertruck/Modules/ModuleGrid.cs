@@ -15,6 +15,8 @@ public class ModuleGrid : MonoBehaviour
     [SerializeField] private Module startModule;
     [SerializeField] private GameObject wheelPrefab;
     [SerializeField] private Vector2 wheelOffset;
+    
+    public float MaintenanceTimeScale { get; set; }
 
     private class ModuleSlot
     {
@@ -141,14 +143,19 @@ public class ModuleGrid : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        MaintenanceTimeScale = 1;
         moduleSlots = new List<ModuleSlot>();
         for(int i = 0; i < size.x * size.y; i++)
         {
             moduleSlots.Add(new ModuleSlot());
         }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         Module module = GameObject.Instantiate(startModule, transform);
         SetModule(Pos(startModulePos).Value, module);
     }
