@@ -20,15 +20,7 @@ public class EncounterManager : MonoBehaviour
     {
         moduleGrid = GameObject.FindWithTag("ModuleGrid").GetComponent<ModuleGrid>();
         moduleGrid.MaintenanceTimeScale = 0;
-        for (int iSign = 0; iSign < signpost.GetSignCount(); iSign++)
-        {
-            SequenceElement encounter = null;
-            if (testEncounterPrefabs.Count > iSign)
-            {
-                encounter = testEncounterPrefabs[iSign];
-            }
-            signpost.SetSignEncounter(iSign, encounter);
-        }
+        signpost.ShowEncounters(testEncounterPrefabs);
     }
 
     public void StartEncounter(SequenceElement encounterPrefab)
@@ -53,6 +45,7 @@ public class EncounterManager : MonoBehaviour
             currentEncounter = null;
         }
         moduleGrid.MaintenanceTimeScale = 0;
+        signpost.ShowEncounters(testEncounterPrefabs);
     }
 
     private void Finish()

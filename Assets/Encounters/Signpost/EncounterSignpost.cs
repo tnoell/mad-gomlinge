@@ -12,8 +12,8 @@ public class EncounterSignpost : MonoBehaviour
 
     void Awake()
     {
-        encounterBySign = Enumerable.Repeat<SequenceElement>(null, signs.Count()).ToList();
-        
+        ClearEncounters();
+
         for (int iSign = 0; iSign < signs.Count; iSign++)
         {
             Button button = signs[iSign];
@@ -25,6 +25,31 @@ public class EncounterSignpost : MonoBehaviour
     public int GetSignCount()
     {
         return signs.Count;
+    }
+
+    public void ShowEncounters(List<SequenceElement> encounters)
+    {
+        if (encounters.Count > signs.Count)
+        {
+            Debug.LogWarning("More encounters than signs");
+        }
+
+        for (int iSign = 0; iSign < signs.Count; iSign++)
+        {
+            SequenceElement encounter = null;
+            if (iSign < encounters.Count)
+            {
+                encounter = encounters[iSign];
+            }
+            SetSignEncounter(iSign, encounter);
+        }
+
+        Show(true);
+    }
+
+    public void Show(bool show)
+    {
+        gameObject.SetActive(show);
     }
 
     public void SetSignEncounter(int iSign, SequenceElement encounter)
@@ -52,7 +77,12 @@ public class EncounterSignpost : MonoBehaviour
             return;
         }
         encounterManager.StartEncounter(encounter);
-        encounterBySign.Clear();
-        gameObject.SetActive(false); // hide
+        ClearEncounters();
+        Show(false);
+    }
+
+    private void ClearEncounters()
+    {
+        encounterBySign = Enumerable.Repeat<SequenceElement>(null, signs.Count()).ToList();
     }
 }
