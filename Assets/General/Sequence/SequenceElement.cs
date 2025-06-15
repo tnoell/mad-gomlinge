@@ -19,15 +19,12 @@ public class SequenceElement : MonoBehaviour
     [SerializeField] private State state; // serialized for debugging
     private bool hasCompletion;
 
-    void Awake()
+    protected virtual void Awake()
     {
         startAt = Mathf.Infinity;
         state = State.waiting;
         hasCompletion = false;
-        SubAwake();
     }
-
-    protected virtual void SubAwake() {}
 
     public void Begin()
     {
@@ -38,16 +35,13 @@ public class SequenceElement : MonoBehaviour
         startAt = Time.time + precedingDelay;
     }
 
-    private void DoBegin()
+    protected virtual void DoBegin()
     {
         Debug.Log("SequenceElement " + name + " started");
         if(state != State.waiting) throw new Exception("DoBegin called twice");
         state = State.running;
         onStart.Invoke();
-        SubBegin();
     }
-
-    protected virtual void SubBegin() {}
 
     void Update()
     {

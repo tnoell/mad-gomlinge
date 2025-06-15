@@ -9,11 +9,12 @@ public class Sequence : SequenceElement
 
     private int iCurrentElement;
 
-    protected override void SubAwake()
+    protected override void Awake()
     {
-        if(sequence.Count == 0)
+        base.Awake();
+        if (sequence.Count == 0)
         {
-            foreach(Transform child in transform)
+            foreach (Transform child in transform)
             {
                 SequenceElement sequenceElement = child.GetComponent<SequenceElement>();
                 if (sequenceElement) sequence.Add(sequenceElement);
@@ -28,8 +29,9 @@ public class Sequence : SequenceElement
         if(startAutomatically) Begin();
     }
 
-    protected override void SubBegin()
+    protected override void DoBegin()
     {
+        base.DoBegin();
         StartNext();
     }
 

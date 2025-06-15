@@ -9,13 +9,15 @@ public class CombatEncounter : SequenceElement
     protected GameObject environment;
     private bool finished;
 
-    protected override void SubAwake()
+    protected override void Awake()
     {
+        base.Awake();
         environment = GameObject.FindWithTag("EnvironmentRoot");
     }
 
-    protected override void SubBegin()
+    protected override void DoBegin()
     {
+        base.DoBegin();
         finished = false;
 
         ModuleSpawner moduleSpawner = environment.GetComponent<ModuleSpawner>();

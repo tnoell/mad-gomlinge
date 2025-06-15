@@ -10,8 +10,9 @@ public class Tutorial_EngineSparking : SequenceElement
         mTaskDone = true;
     }
 
-    protected override void SubBegin()
+    protected override void DoBegin()
     {
+        base.DoBegin();
         mTaskDone = false;
         engine = GameObject.FindWithTag("TutorialStartEngine").GetComponent<Module>();
         MaintenanceTimer timer = engine.GetComponent<MaintenanceTimer>();
