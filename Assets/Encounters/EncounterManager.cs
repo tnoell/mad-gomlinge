@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -35,11 +36,6 @@ public class EncounterManager : MonoBehaviour
 
     private void StartNextEncounter()
     {
-        if (currentEncounters.Count() == 0)
-        {
-            EndEncounterSequence();
-            return;
-        }
         currentEncounters[0].onFinish.AddListener(EndEncounter);
         currentEncounters[0].Begin();
         moduleGrid.MaintenanceTimeScale = 1;
@@ -48,7 +44,16 @@ public class EncounterManager : MonoBehaviour
     void EndEncounter()
     {
         currentEncounters.RemoveAt(0);
-        StartNextEncounter();
+        moduleGrid.MaintenanceTimeScale = 0;
+        if (currentEncounters.Count() == 0)
+        {
+            EndEncounterSequence();
+            return;
+        }
+
+        List<EncounterSignpost.SignContent> signContents = new List<EncounterSignpost.SignContent>();
+        signContents.Add(new EncounterSignpost.SignContent(StartNextEncounter, currentEncounters));
+        signpost.ShowSigns(signContents);
     }
 
     void EndEncounterSequence()
@@ -59,13 +64,18 @@ public class EncounterManager : MonoBehaviour
             currentEncounterSeq = null;
             currentEncounters = null;
         }
-        moduleGrid.MaintenanceTimeScale = 0;
         ShowNextEncounterSelection();
     }
 
     void ShowNextEncounterSelection()
     {
-        signpost.ShowEncounters(pf_testEncounterSeqs); // TODO: randomize
+        // TODO: randomize
+        List<EncounterSignpost.SignContent> signContents = new List<EncounterSignpost.SignContent>();
+        foreach (GameObject pf_testEncounterSeq in pf_testEncounterSeqs)
+        {
+            signContents.Add(new EncounterSignpost.SignContent(pf_testEncounterSeq));
+        }
+        signpost.ShowSigns(signContents);
     }
 
     private void Finish()

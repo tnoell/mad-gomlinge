@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class EncounterSignpost : MonoBehaviour
@@ -8,11 +9,41 @@ public class EncounterSignpost : MonoBehaviour
     [SerializeField] private List<Button> signs;
     [SerializeField] private EncounterManager encounterManager;
 
-    private List<GameObject> pf_encounterSeqBySign;
+    public class SignContent
+    {
+        public GameObject pf_encounterSeq { get; private set; } = null;
+        public UnityAction action { get; private set; } = null;
+        public List<Sprite> icons { get; private set; } = null;
+
+        public SignContent(GameObject pf_encounterSeq)
+        {
+            this.pf_encounterSeq = pf_encounterSeq;
+            List<Encounter> pf_encounters = pf_encounterSeq.GetComponentsInChildren<Encounter>().ToList();
+            LoadIcons(pf_encounters);
+        }
+
+        public SignContent(UnityAction action, List<Encounter> iconSources)
+        {
+            this.action = action;
+            LoadIcons(iconSources);
+        }
+
+        private void LoadIcons(List<Encounter> iconSources)
+        {
+            icons = new List<Sprite>();
+            foreach (Encounter pf_encounter in iconSources)
+            {
+                Sprite icon = pf_encounter.GetIcon();
+                if (icon != null) icons.Add(icon);
+            }
+        }
+    }
+
+    private List<SignContent> signContents;
 
     void Awake()
     {
-        ClearEncounters();
+        ClearSigns();
 
         for (int iSign = 0; iSign < signs.Count; iSign++)
         {
@@ -27,21 +58,21 @@ public class EncounterSignpost : MonoBehaviour
         return signs.Count;
     }
 
-    public void ShowEncounters(List<GameObject> pf_encounterSeqs)
+    public void ShowSigns(List<SignContent> signContents)
     {
-        if (pf_encounterSeqs.Count > signs.Count)
+        if (signContents.Count > signs.Count)
         {
-            Debug.LogWarning("More encounters than signs");
+            Debug.LogWarning("Can't show " + signContents.Count + " signs");
         }
 
         for (int iSign = 0; iSign < signs.Count; iSign++)
         {
-            GameObject pf_encounterSeq = null;
-            if (iSign < pf_encounterSeqs.Count)
+            SignContent signContent = null;
+            if (iSign < signContents.Count)
             {
-                pf_encounterSeq = pf_encounterSeqs[iSign];
+                signContent = signContents[iSign];
             }
-            SetSignEncounter(iSign, pf_encounterSeq);
+            SetSignContent(iSign, signContent);
         }
 
         Show(true);
@@ -52,43 +83,40 @@ public class EncounterSignpost : MonoBehaviour
         gameObject.SetActive(show);
     }
 
-    public void SetSignEncounter(int iSign, GameObject pf_encounterSeq)
+    public void SetSignContent(int iSign, SignContent signContent)
     {
         Button button = signs[iSign];
-        pf_encounterSeqBySign[iSign] = pf_encounterSeq;
+        signContents[iSign] = signContent;
 
-        if (pf_encounterSeq == null)
+        if (signContent == null)
         {
             button.gameObject.SetActive(false);
             return;
         }
         button.gameObject.SetActive(true);
         MultiImage images = button.GetComponent<MultiImage>();
-        Encounter[] pf_encounters = pf_encounterSeq.GetComponentsInChildren<Encounter>();
-        List<Sprite> icons = new List<Sprite>();
-        foreach (Encounter pf_encounter in pf_encounters)
-        {
-            Sprite icon = pf_encounter.GetIcon();
-            if (icon != null) icons.Add(icon);
-        }
-        images.Display(icons);
+        images.Display(signContent.icons);
     }
 
     private void OnSignClicked(int iSign)
     {
-        GameObject pf_encounterSeq = pf_encounterSeqBySign[iSign];
-        if (pf_encounterSeq == null)
+        SignContent content = signContents[iSign];
+        if (content == null)
         {
-            Debug.LogWarning("Signpost: Sign without corresponding encounter clicked");
+            Debug.LogWarning("Signpost: Sign without corresponding content clicked");
             return;
         }
-        encounterManager.StartEncounterSequence(pf_encounterSeq);
-        ClearEncounters();
+        if (content.pf_encounterSeq != null)
+        {
+            encounterManager.StartEncounterSequence(content.pf_encounterSeq);
+        }
+        content.action?.Invoke();
+        ClearSigns();
         Show(false);
     }
 
-    private void ClearEncounters()
+    private void ClearSigns()
     {
-        pf_encounterSeqBySign = Enumerable.Repeat<GameObject>(null, signs.Count()).ToList();
+        signContents = Enumerable.Repeat<SignContent>(null, signs.Count()).ToList();
     }
 }
