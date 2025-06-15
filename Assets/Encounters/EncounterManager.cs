@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,11 +8,12 @@ using UnityEngine.UI;
 public class EncounterManager : MonoBehaviour
 {
     // [SerializeField] private int nEncounters = 10;
-    [SerializeField] private List<SequenceElement> testEncounterPrefabs; // not gonna be a straight sequence later
+    [SerializeField] private List<GameObject> pf_testEncounterSeqs; // not gonna be a straight sequence later
     [SerializeField] private EncounterSignpost signpost;
 
     public UnityEvent onFinish;
-    private SequenceElement currentEncounter;
+    private GameObject currentEncounterSeq;
+    private List<Encounter> currentEncounters;
     private ModuleGrid moduleGrid;
 
     // private int encountersLeft;
@@ -20,32 +22,50 @@ public class EncounterManager : MonoBehaviour
     {
         moduleGrid = GameObject.FindWithTag("ModuleGrid").GetComponent<ModuleGrid>();
         moduleGrid.MaintenanceTimeScale = 0;
-        signpost.ShowEncounters(testEncounterPrefabs);
+        ShowNextEncounterSelection();
     }
 
-    public void StartEncounter(SequenceElement encounterPrefab)
+    public void StartEncounterSequence(GameObject pf_encounterSeq)
     {
-        if (currentEncounter) throw new Exception("Already in encounter");
-        currentEncounter = GameObject.Instantiate(encounterPrefab, transform);
-        currentEncounter.onFinish.AddListener(EndEncounter);
-        currentEncounter.Begin();
+        if (currentEncounterSeq != null) throw new Exception("Already in encounter");
+        currentEncounterSeq = GameObject.Instantiate(pf_encounterSeq, transform);
+        currentEncounters = currentEncounterSeq.GetComponentsInChildren<Encounter>().ToList();
+        StartNextEncounter();
+    }
+
+    private void StartNextEncounter()
+    {
+        if (currentEncounters.Count() == 0)
+        {
+            EndEncounterSequence();
+            return;
+        }
+        currentEncounters[0].onFinish.AddListener(EndEncounter);
+        currentEncounters[0].Begin();
         moduleGrid.MaintenanceTimeScale = 1;
-    }
-
-    void ShowNextEncounterSelection()
-    {
-
     }
 
     void EndEncounter()
     {
-        if (currentEncounter)
+        currentEncounters.RemoveAt(0);
+        StartNextEncounter();
+    }
+
+    void EndEncounterSequence()
+    {
+        if (currentEncounterSeq)
         {
-            GameObject.Destroy(currentEncounter.gameObject);
-            currentEncounter = null;
+            GameObject.Destroy(currentEncounterSeq);
+            currentEncounterSeq = null;
+            currentEncounters = null;
         }
         moduleGrid.MaintenanceTimeScale = 0;
-        signpost.ShowEncounters(testEncounterPrefabs);
+        ShowNextEncounterSelection();
+    }
+
+    void ShowNextEncounterSelection()
+    {
+        signpost.ShowEncounters(pf_testEncounterSeqs); // TODO: randomize
     }
 
     private void Finish()

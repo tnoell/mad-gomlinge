@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CombatEncounter : SequenceElement
+public class CombatEncounter : Encounter
 {
     // later these prefabs will come from somewhere else, possibly another component on this gameobject
     [SerializeField] private Module[] modulePrefabs;

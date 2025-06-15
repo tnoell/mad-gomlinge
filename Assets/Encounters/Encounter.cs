@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public abstract class Encounter : MonoBehaviour
+public abstract class Encounter : SequenceElement
 {
-    public abstract void Begin();
+    [SerializeField] private Sprite icon;
+
+    public Sprite GetIcon() { return icon; }
 }

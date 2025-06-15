@@ -8,7 +8,7 @@ public class EncounterSignpost : MonoBehaviour
     [SerializeField] private List<Button> signs;
     [SerializeField] private EncounterManager encounterManager;
 
-    private List<SequenceElement> encounterBySign;
+    private List<GameObject> pf_encounterSeqBySign;
 
     void Awake()
     {
@@ -27,21 +27,21 @@ public class EncounterSignpost : MonoBehaviour
         return signs.Count;
     }
 
-    public void ShowEncounters(List<SequenceElement> encounters)
+    public void ShowEncounters(List<GameObject> pf_encounterSeqs)
     {
-        if (encounters.Count > signs.Count)
+        if (pf_encounterSeqs.Count > signs.Count)
         {
             Debug.LogWarning("More encounters than signs");
         }
 
         for (int iSign = 0; iSign < signs.Count; iSign++)
         {
-            SequenceElement encounter = null;
-            if (iSign < encounters.Count)
+            GameObject pf_encounterSeq = null;
+            if (iSign < pf_encounterSeqs.Count)
             {
-                encounter = encounters[iSign];
+                pf_encounterSeq = pf_encounterSeqs[iSign];
             }
-            SetSignEncounter(iSign, encounter);
+            SetSignEncounter(iSign, pf_encounterSeq);
         }
 
         Show(true);
@@ -52,37 +52,43 @@ public class EncounterSignpost : MonoBehaviour
         gameObject.SetActive(show);
     }
 
-    public void SetSignEncounter(int iSign, SequenceElement encounter)
+    public void SetSignEncounter(int iSign, GameObject pf_encounterSeq)
     {
         Button button = signs[iSign];
-        encounterBySign[iSign] = encounter;
+        pf_encounterSeqBySign[iSign] = pf_encounterSeq;
 
-        if (encounter == null)
+        if (pf_encounterSeq == null)
         {
             button.gameObject.SetActive(false);
             return;
         }
         button.gameObject.SetActive(true);
         MultiImage images = button.GetComponent<MultiImage>();
-        IconSequence icons = encounter.GetComponent<IconSequence>();
-        images.Display(icons.Get());
+        Encounter[] pf_encounters = pf_encounterSeq.GetComponentsInChildren<Encounter>();
+        List<Sprite> icons = new List<Sprite>();
+        foreach (Encounter pf_encounter in pf_encounters)
+        {
+            Sprite icon = pf_encounter.GetIcon();
+            if (icon != null) icons.Add(icon);
+        }
+        images.Display(icons);
     }
 
     private void OnSignClicked(int iSign)
     {
-        SequenceElement encounter = encounterBySign[iSign];
-        if (encounter == null)
+        GameObject pf_encounterSeq = pf_encounterSeqBySign[iSign];
+        if (pf_encounterSeq == null)
         {
             Debug.LogWarning("Signpost: Sign without corresponding encounter clicked");
             return;
         }
-        encounterManager.StartEncounter(encounter);
+        encounterManager.StartEncounterSequence(pf_encounterSeq);
         ClearEncounters();
         Show(false);
     }
 
     private void ClearEncounters()
     {
-        encounterBySign = Enumerable.Repeat<SequenceElement>(null, signs.Count()).ToList();
+        pf_encounterSeqBySign = Enumerable.Repeat<GameObject>(null, signs.Count()).ToList();
     }
 }

@@ -86,6 +86,7 @@ MonoBehaviour:
       m_Calls: []
   needsCompletion: 0
   state: 0
+  icon: {fileID: -1139678908, guid: a012facb2432a8249905d5dfdd210669, type: 3}
   modulePrefabs:
   - {fileID: 1834592447520924678, guid: fbd557ccfd2f27d4cb162b9c7f75e315, type: 3}
   - {fileID: 578270320542502568, guid: 011e867320418fb4dbb82f21a31bbb97, type: 3}

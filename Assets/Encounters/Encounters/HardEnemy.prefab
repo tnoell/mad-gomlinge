@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 698098777037806813, guid: 66c1bb879bc43734cbc83c821f5cd8b2, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 815a8c3bb07cbcc489c3aca0d1355060, type: 3}
+    - target: {fileID: 698098777037806813, guid: 66c1bb879bc43734cbc83c821f5cd8b2, type: 3}
       propertyPath: enemyPrefabSequence.Array.size
       value: 4
       objectReference: {fileID: 0}
